@@ -9,7 +9,7 @@
   // ── Password Gate ──
   const PASS_HASH = '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'; // SHA-256 of 'password' — change later
   const STORAGE_KEY = 'whale_workspace_auth';
-  const SIMPLE_PASS = 'whale2026'; // Simple password — easy to share
+  const SIMPLE_PASS = 'joyji'; // Simple password — easy to share
 
   window.WhaleAuth = {
     check: function() {
