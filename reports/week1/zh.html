@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 1 Onboarding · Weimin JI · Whale</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#050f1e;--blue:#1462ff;--blue-dim:rgba(20,98,255,.08);--blue-lt:#e8f0ff;--green:#12b76a;--green-lt:#ecfdf5;--amber:#f59e0b;--amber-lt:#fffbeb;--g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g800:#1f2937;--g900:#111827}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--g50);color:var(--g900);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.hdr{background:var(--navy);padding:36px 56px 32px}
+.hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-box{width:30px;height:30px;background:var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px}
+.logo-word{font-size:14px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+.rtag{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.32)}
+.hdr h1{font-size:30px;font-weight:700;letter-spacing:-.02em;color:#fff;line-height:1.15;margin-bottom:5px}
+.hdr-sub{font-size:13px;color:rgba(255,255,255,.42)}
+.meta-row{display:flex;gap:36px;margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
+.mi{display:flex;flex-direction:column;gap:3px}
+.ml{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.26)}
+.mv{font-size:13px;font-weight:500;color:rgba(255,255,255,.78)}
+.sdot{display:inline-flex;align-items:center;gap:6px;color:#34d399;font-weight:600}
+.sdot::before{content:'';width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,.2)}
+.page{max-width:980px;margin:0 auto;padding:50px 40px 80px}
+.sec{margin-bottom:52px}
+.sk{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.sn{width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.slbl{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
+.stitle{font-size:20px;font-weight:700;letter-spacing:-.015em;color:var(--g800);margin-left:34px;margin-bottom:18px}
+.tl{background:#fff;border:1px solid var(--g200);border-radius:14px;padding:30px 34px}
+.phases{display:grid;grid-template-columns:repeat(4,1fr);position:relative;padding-bottom:6px}
+.phases::before{content:'';position:absolute;height:2px;background:var(--g200);top:9px;left:12.5%;right:12.5%;z-index:0}
+.phases::after{content:'';position:absolute;height:2px;background:var(--blue);top:9px;left:12.5%;width:25%;z-index:0}
+.ph{display:flex;flex-direction:column;align-items:center;gap:9px;position:relative;z-index:1}
+.dot{width:18px;height:18px;border-radius:50%;background:var(--g200);border:3px solid #fff;box-shadow:0 0 0 2px var(--g200)}
+.dot.done{background:var(--blue);box-shadow:0 0 0 3px var(--blue-lt)}
+.dot.now{background:var(--blue);box-shadow:0 0 0 5px rgba(20,98,255,.18);width:22px;height:22px;margin-top:-2px}
+.phn{font-size:12px;font-weight:700;text-align:center;color:var(--g400);line-height:1.3}
+.phn.done{color:var(--blue)}.phn.now{color:var(--g800)}
+.phd{font-size:10px;color:var(--g400);text-align:center;line-height:1.4}
+.pill-now{display:inline-block;background:var(--navy);color:#fff;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:100px}
+.pill-done{display:inline-block;background:var(--blue-lt);color:var(--blue);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:100px}
+.tl-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;padding-top:22px;border-top:1px solid var(--g100)}
+.ts{padding:15px 17px;border-radius:10px;border:1px solid transparent}
+.ts.done{background:var(--green-lt);border-color:#a7f3d0}
+.ts.prog{background:var(--blue-dim);border-color:var(--blue-lt)}
+.ts.next{background:var(--g100);border-color:var(--g200)}
+.tsl{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--g400);margin-bottom:4px}
+.ts.done .tsl{color:var(--green)}.ts.prog .tsl{color:var(--blue)}
+.tst{font-size:13px;font-weight:700;color:var(--g800);margin-bottom:3px}
+.tsd{font-size:12px;color:var(--g500);line-height:1.5}
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.rc{background:#fff;border:1px solid var(--g200);border-radius:12px;padding:22px}
+.rc.full{grid-column:1/-1}
+.rch{display:flex;align-items:flex-start;gap:11px;margin-bottom:16px}
+.rci{width:36px;height:36px;border-radius:9px;background:var(--blue-dim);border:1px solid var(--blue-lt);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.rct{font-size:13px;font-weight:700;color:var(--g800)}
+.rcs{font-size:11px;color:var(--g400);margin-top:1px}
+ul.bl{list-style:none;display:flex;flex-direction:column;gap:7px}
+ul.bl li{display:flex;gap:8px;font-size:12px;color:var(--g600);line-height:1.55}
+ul.bl li::before{content:'→';color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px}
+.ai-uses{margin-top:14px;padding-top:12px;border-top:1px solid var(--g100);display:flex;flex-direction:column;gap:10px}
+.ai-use{display:flex;gap:10px;align-items:flex-start}
+.ai-ltr{width:20px;height:20px;border-radius:4px;background:var(--blue-dim);border:1px solid var(--blue-lt);color:var(--blue);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ai-ut{font-size:12px;font-weight:700;color:var(--g800);margin-bottom:2px}
+.ai-ud{font-size:11px;color:var(--g500);line-height:1.5}
+.mx{display:flex;gap:20px;margin-top:16px;padding-top:14px;border-top:1px solid var(--g100)}
+.mxn{font-size:22px;font-weight:800;color:var(--blue);letter-spacing:-.03em;line-height:1;margin-bottom:2px}
+.mxl{font-size:10px;color:var(--g400);text-transform:uppercase;letter-spacing:.1em;font-weight:500}
+/* TIMELINE TABLE */
+.tbl{width:100%;border-collapse:collapse;margin-top:2px}
+.tbl thead tr{border-bottom:1px solid var(--g100)}
+.tbl th{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--g400);padding:9px 12px;text-align:left;background:var(--g50)}
+.tbl td{font-size:12px;color:var(--g600);padding:11px 12px;border-bottom:1px solid var(--g100);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td.date{font-size:11px;font-weight:600;color:var(--g400);white-space:nowrap;width:90px}
+.tbl td.day{font-size:11px;color:var(--g400);width:70px}
+.pn{font-size:13px;font-weight:600;color:var(--g800)}
+.ps{font-size:11px;color:var(--g400);margin-top:1px}
+.tag{display:inline-flex;align-items:center;padding:3px 9px;border-radius:100px;font-size:10px;font-weight:600}
+.tb{background:var(--blue-lt);color:var(--blue)}
+.tg{background:var(--green-lt);color:#059669}
+.ta{background:var(--amber-lt);color:#92400e}
+.tgr{background:var(--g100);color:var(--g600)}
+.tpu{background:#f3e8ff;color:#7c3aed}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.co{padding:17px 18px;border-radius:10px;border-left:4px solid transparent}
+.co.info{background:var(--blue-dim);border-color:var(--blue)}
+.coty{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:5px;color:var(--blue)}
+.cott{font-size:13px;font-weight:700;color:var(--g800);margin-bottom:4px}
+.cotx{font-size:12px;color:var(--g600);line-height:1.55}
+.nsg{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.nsc{background:#fff;border:1px solid var(--g200);border-radius:11px;padding:18px 16px;position:relative;overflow:hidden}
+.nsc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--blue);opacity:.5}
+.nsn{font-size:10px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--blue);margin-bottom:9px}
+.nsd{font-size:11px;color:var(--g400);font-weight:500;margin-bottom:6px}
+.nst{font-size:13px;font-weight:700;color:var(--g800);line-height:1.3;margin-bottom:6px}
+.nsx{font-size:11px;color:var(--g500);line-height:1.5}
+.at{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--g200)}
+.at th{background:var(--g50);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--g400);padding:10px 16px;text-align:left;border-bottom:1px solid var(--g200)}
+.at td{font-size:12px;color:var(--g600);padding:11px 16px;border-bottom:1px solid var(--g100);vertical-align:middle}
+.at tr:last-child td{border-bottom:none}
+.at td:first-child{font-size:11px;font-weight:600;color:var(--g400);width:36px}
+.at td:nth-child(2){font-weight:500;color:var(--g800)}
+.tc-img{width:100%;border-radius:8px;border:1px solid var(--g200);display:block;margin-top:14px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.tc-caption{font-size:11px;color:var(--g400);margin-top:6px;text-align:center;font-style:italic}
+.ftr{background:var(--navy);padding:18px 56px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.28)}
+.ftr strong{color:rgba(255,255,255,.5)}
+@media print{
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  .sec,.tl,.tl-stats,.ts,.rg,.rc,.co,.cg,.nsc,.nsg,.tbl tr,.at tr{break-inside:avoid;page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-top">
+    <div class="logo"><div class="logo-box">W</div><span class="logo-word">Whale</span></div>
+    <span class="rtag">Onboarding Status Report · Week 1</span>
+  </div>
+  <h1>Week 1 Onboarding Report</h1>
+  <p class="hdr-sub">Product &amp; Solution Knowledge · SA / Presales Track</p>
+  <div class="meta-row">
+    <div class="mi"><span class="ml">Prepared by</span><span class="mv">Weimin JI &nbsp;计玮敏</span></div>
+    <div class="mi"><span class="ml">Period</span><span class="mv">Jun 11 – 18, 2026</span></div>
+    <div class="mi"><span class="ml">Report Date</span><span class="mv">Jun 18, 2026</span></div>
+    <div class="mi"><span class="ml">Overall Status</span><span class="mv"><span class="sdot">On Track</span></span></div>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- 01 TIMELINE -->
+  <section class="sec">
+    <div class="sk"><div class="sn">1</div><span class="slbl">Overall Timeline &amp; Current Status</span></div>
+    <h2 class="stitle">Onboarding Plan · Phase 1 of 4 Complete</h2>
+    <div class="tl">
+      <div class="phases">
+        <div class="ph">
+          <div class="dot done"></div>
+          <div class="phn done">Phase 0 + 1</div>
+          <div class="phd">Company Overview<br>+ Product Portfolio<br>Jun 11–17</div>
+          <div class="pill-done">Done ✓</div>
+        </div>
+        <div class="ph">
+          <div class="dot now"></div>
+          <div class="phn now">Phase 2</div>
+          <div class="phd">SpaceSight + Echo<br>Deep Dive<br>Jun 18–26</div>
+          <div class="pill-now">← In Progress</div>
+        </div>
+        <div class="ph">
+          <div class="dot"></div>
+          <div class="phn">Phase 3</div>
+          <div class="phd">Alivia + Harbor<br>SA Toolkit Draft<br>Jun 23–26</div>
+        </div>
+        <div class="ph">
+          <div class="dot"></div>
+          <div class="phn">Phase 4+</div>
+          <div class="phd">Live Project Full<br>Integration<br>Jun 29 onward</div>
+        </div>
+      </div>
+      <div class="tl-stats">
+        <div class="ts done">
+          <div class="tsl">✅ Completed</div>
+          <div class="tst">Phase 0 + 1</div>
+          <div class="tsd">Company positioning, full product portfolio overview, and Harbor Teamspace materials sweep. Completed ahead of schedule.</div>
+        </div>
+        <div class="ts prog">
+          <div class="tsl">🔵 Running in Parallel</div>
+          <div class="tst">Live Project Shadowing</div>
+          <div class="tsd">Embedded in 4 project tracks with 5 sessions attended across the first week. Running alongside self-study throughout the onboarding period.</div>
+        </div>
+        <div class="ts next">
+          <div class="tsl">🔜 Starting Tomorrow</div>
+          <div class="tst">Phase 2: Core Product Deep Dive</div>
+          <div class="tsd">SpaceSight (Jun 18–23) → Echo (Jun 24–25) → SA Toolkit (Jun 25–26). Week 2 report due Jun 25.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 RECAP -->
+  <section class="sec">
+    <div class="sk"><div class="sn">2</div><span class="slbl">Weekly Recap</span></div>
+    <h2 class="stitle">What Got Done · Jun 11–17, 2026</h2>
+    <div class="rg">
+
+      <div class="rc">
+        <div class="rch"><div class="rci">📚</div><div><div class="rct">Product Knowledge Foundation</div><div class="rcs">Harbor Teamspace · Self-directed · Jun 15–17</div></div></div>
+        <ul class="bl">
+          <li>Full sweep of Harbor Teamspace: all accessible product and solution decks across SpaceSight, Echo, Harbor, Cast, and all major industry verticals</li>
+          <li>Reviewed Whale public positioning, Alivia One Platform architecture, AI partner maturity model, and key client case studies</li>
+          <li>Built working mental model across all 6 products, their integration logic, and SA-relevant capability boundaries</li>
+        </ul>
+        <div class="mx">
+          <div><div class="mxn">6</div><div class="mxl">Products surveyed</div></div>
+          <div><div class="mxn">20+</div><div class="mxl">Decks reviewed</div></div>
+          <div><div class="mxn">3 days</div><div class="mxl">Phase 0+1 done</div></div>
+        </div>
+      </div>
+
+      <div class="rc">
+        <div class="rch"><div class="rci">🤖</div><div><div class="rct">AI-Augmented Work Methodology</div><div class="rcs">Alivia · Applied from Day One</div></div></div>
+        <ul class="bl"><li>Established an AI-first working methodology from day one, across three areas:</li></ul>
+        <div class="ai-uses">
+          <div class="ai-use">
+            <div class="ai-ltr">A</div>
+            <div><div class="ai-ut">Training Tutor &amp; Onboarding Plan</div><div class="ai-ud">AI-designed structured learning path with progressive phases, mapped to SA role deliverables and real project context.</div></div>
+          </div>
+          <div class="ai-use">
+            <div class="ai-ltr">B</div>
+            <div><div class="ai-ut">Repeatable Status Check &amp; Weekly Report</div><div class="ai-ud">This report is the first output — template established for recurring use, directly shareable in Whale brand format.</div></div>
+          </div>
+          <div class="ai-use">
+            <div class="ai-ltr">C</div>
+            <div><div class="ai-ut">Term Depository / Product &amp; Presales Dictionary</div><div class="ai-ud">Compiled Whale product terms and presales vocabulary. Foundation extensible into a full BD/SA knowledge base. See Appendix A27.</div></div>
+          </div>
+        </div>
+        <div class="mx">
+          <div><div class="mxn">3</div><div class="mxl">AI workflows live</div></div>
+          <div><div class="mxn">~60%</div><div class="mxl">Time saved vs. manual</div></div>
+        </div>
+      </div>
+
+      <!-- Live Projects full-width with day-by-day timeline -->
+      <div class="rc full">
+        <div class="rch"><div class="rci">🤝</div><div><div class="rct">Live Project Shadowing</div><div class="rcs">4 Project Tracks · 5 Sessions · Week 1</div></div></div>
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Day</th>
+              <th>Project / Client</th>
+              <th>Product</th>
+              <th>Status</th>
+              <th>Involvement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="date">Jun 11</td>
+              <td class="day">Wed · Day 1</td>
+              <td><div class="pn">Zhengfang (正项) · Channel Partner</div><div class="ps">渠道正项</div></td>
+              <td>SpaceSight</td>
+              <td><span class="tag tg">Done</span></td>
+              <td>Attended SA-led channel training session; observed full presales methodology firsthand</td>
+            </tr>
+            <tr>
+              <td class="date">Jun 11</td>
+              <td class="day">Wed · Day 1</td>
+              <td><div class="pn">Heyu Technology · Channel Partner</div><div class="ps">合语科技渠道方</div></td>
+              <td>SpaceSight</td>
+              <td><span class="tag tg">Done</span></td>
+              <td>SpaceSight channel training completed; embedded in comms group; Echo session scheduled as next engagement</td>
+            </tr>
+            <tr>
+              <td class="date">Jun 12</td>
+              <td class="day">Thu · Day 2</td>
+              <td><div class="pn">Hisense · Channel AI Audit</div><div class="ps">海信渠道巡检</div></td>
+              <td>SpaceSight</td>
+              <td><span class="tag tb">Active</span></td>
+              <td>Partner meeting attended; embedded in internal and external project comms groups; follow-up in progress</td>
+            </tr>
+            <tr>
+              <td class="date">Jun 16</td>
+              <td class="day">Tue · PM</td>
+              <td><div class="pn">APAC Projects (×3)</div><div class="ps">APAC BD / SA Sync</div></td>
+              <td>Multiple</td>
+              <td><span class="tag tg">Observed</span></td>
+              <td>Attended 3 consecutive APAC BD/SA alignment sessions; observed international deal workflow and BD-SA communication structure</td>
+            </tr>
+            <tr>
+              <td class="date">Ongoing</td>
+              <td class="day">—</td>
+              <td><div class="pn">Huawei · Railway Project</div><div class="ps">华为铁路项目</div></td>
+              <td>TBD</td>
+              <td><span class="tag ta">Discovery</span></td>
+              <td>In internal comms group; requirements under clarification, no client meeting scheduled yet</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mx">
+          <div><div class="mxn">4</div><div class="mxl">Project tracks</div></div>
+          <div><div class="mxn">5</div><div class="mxl">Sessions attended</div></div>
+          <div><div class="mxn">3</div><div class="mxl">APAC deals observed</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 CALLOUTS -->
+  <section class="sec">
+    <div class="sk"><div class="sn">3</div><span class="slbl">Observations &amp; Action Items</span></div>
+    <h2 class="stitle">Notes for Alignment · No Current Blockers</h2>
+    <div class="cg">
+      <div class="co info">
+        <div class="coty">ℹ Observation</div>
+        <div class="cott">APAC vs. China BD/SA Workflow — Structural Differences Noted</div>
+        <div class="cotx">APAC deal interaction patterns differ meaningfully from the China market model. Requesting a short debrief with the team before taking on direct APAC-facing SA responsibilities.</div>
+      </div>
+      <div class="co info">
+        <div class="coty">ℹ Materials Request</div>
+        <div class="cott">Phase 2 Reading Materials — Please Advise Who to Contact</div>
+        <div class="cotx">To prepare for next week's deep dives: SpaceSight competitive brief, Echo tech spec / architecture doc, and any existing SA demo scripts or qualification playbooks.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 NEXT STEPS -->
+  <section class="sec">
+    <div class="sk"><div class="sn">4</div><span class="slbl">Next Steps</span></div>
+    <h2 class="stitle">Jun 18 – 26, 2026</h2>
+    <div class="nsg">
+      <div class="nsc">
+        <div class="nsn">Step 01</div>
+        <div class="nsd">Thu Jun 19</div>
+        <div class="nst">SpaceSight Deep Dive</div>
+        <div class="nsx">AI vision capabilities, edge hardware, VLM audit logic, footfall analytics, smart scheduling</div>
+      </div>
+      <div class="nsc">
+        <div class="nsn">Step 02</div>
+        <div class="nsd">Mon–Tue Jun 22–23</div>
+        <div class="nst">SpaceSight: Cases &amp; SA Boundaries</div>
+        <div class="nsx">Industry applications, reference client cases (Dell, SKP, Starbucks), capability limits for SA qualification</div>
+      </div>
+      <div class="nsc">
+        <div class="nsn">Step 03</div>
+        <div class="nsd">Wed–Thu Jun 24–25</div>
+        <div class="nst">Echo Deep Dive</div>
+        <div class="nsx">Voice AI logic, hardware ecosystem, service QA workflows, SpaceSight integration — incl. live Heyu Tech Echo session</div>
+      </div>
+      <div class="nsc">
+        <div class="nsn">Step 04</div>
+        <div class="nsd">Fri Jun 26</div>
+        <div class="nst">SA Toolkit + Week 2 Report</div>
+        <div class="nsx">Alivia + Harbor positioning, capability boundary matrix, SA cheat sheet draft, Week 2 status report</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 APPENDIX -->
+  <section class="sec">
+    <div class="sk"><div class="sn">5</div><span class="slbl">Appendix</span></div>
+    <h2 class="stitle">Reading &amp; Reference List · Week 1</h2>
+    <table class="at">
+      <thead><tr><th>#</th><th>Material</th><th>Source</th><th>Phase</th></tr></thead>
+      <tbody>
+        <tr><td>A1</td><td>Whale Company Overview Deck 2025 / 2026 (multiple editions)</td><td>Harbor Teamspace</td><td><span class="tag tg" style="font-size:10px">Phase 0–1</span></td></tr>
+        <tr><td>A2</td><td>Whale Brand Identity &amp; Positioning Guide 2025 (China edition)</td><td>Harbor Teamspace</td><td><span class="tag tg" style="font-size:10px">Phase 0</span></td></tr>
+        <tr><td>A3</td><td>Alivia One Platform Deck — v15.4.1 (EN + ZH)</td><td>Public / Harbor</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A4</td><td>Alivia AI Partner Cast — 12 roles (Dodo, XunXun, Flow, Memo, YingYing, Review, Kiki, Yanyan, Momo, LianLian, BanBan, Guide)</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A5</td><td>AI Partner Maturity Model — L1 to L5 (Executor → Autonomous)</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A6</td><td>Alivia Platform Architecture — 3-layer stack (Novus / Harbor / Alivia)</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A7</td><td>SpaceSight Product Deck — AI vision, edge hardware, audit, footfall, scheduling</td><td>Harbor Teamspace</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A8</td><td>Echo Product Deck — voice AI, smart badge, service QA, conversation analytics</td><td>Harbor Teamspace</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A9</td><td>Harbor Product Deck — knowledge management, AI Wiki, DAM, content review</td><td>Harbor Teamspace</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A10</td><td>Lume / Cast Product Deck — KOS marketing, live commerce analytics</td><td>Harbor Teamspace</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A11</td><td>SA Solution Template (internal presales template)</td><td>Harbor Teamspace</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A12</td><td>Case Study: Watsons — 4-pillar AI loop</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A13</td><td>Case Study: Hyundai — Echo service QA and customer insight loop</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A14</td><td>Case Study: Shiseido / CPB Beauté — Learn-Practice-Test-Use training loop</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A15</td><td>Case Study: Dell — VLM-driven AI audit closed loop</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A16</td><td>Case Study: National Gallery Singapore — online-offline audit loop</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A17</td><td>Case Study: SKP — AI audit, traffic analytics, auto-dispatch</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A18</td><td>Case Study: Pandora — KOS content loop</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A19</td><td>Case Study: Sephora — Retail Media Network, 8-layer Beauty OS</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A20</td><td>Case Study: Chow Tai Fook — full-stack SpaceSight + Echo + Harbor + Alivia</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A21</td><td>Case Study: Starbucks — traffic-to-dispatch AI loop</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A22</td><td>Case Study: Chanel — premium service Copilot via Echo Buds + Harbor</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A23</td><td>Case Study: Viatris — market signal to marketing action workflow</td><td>Harbor / Public</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A24</td><td>Industry Best Practice Cases 2024 — retail, F&amp;B, auto, beauty, healthcare, commercial RE</td><td>Harbor Teamspace</td><td><span class="tag tg" style="font-size:10px">Phase 1</span></td></tr>
+        <tr><td>A25</td><td>Whale public website — whale.sg, meetwhale.ai/retail</td><td>External</td><td><span class="tag tgr" style="font-size:10px">Phase 0</span></td></tr>
+        <tr><td>A26</td><td>Third-party coverage — 36Kr, IMDA Singapore, Martech industry reports</td><td>External</td><td><span class="tag tgr" style="font-size:10px">Phase 0</span></td></tr>
+        <tr><td>A27</td><td>Term Depository / Product &amp; Presales Dictionary — self-created during onboarding (screenshot below)</td><td>Self-created</td><td><span class="tag tb" style="font-size:10px">Ongoing</span></td></tr>
+      </tbody>
+    </table>
+    <img src="https://whale-nemo.oss-cn-hangzhou.aliyuncs.com/workspace/73515157-3687-4fff-978c-6ecb46f6240c/term_library_screenshot.png" class="tc-img" alt="Term Depository v1.0">
+    <p class="tc-caption">Term Depository · v1.0 · Built Jun 17, 2026 · Ongoing</p>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <span>Whale · Internal Use Only · <strong>Weimin JI</strong> · Week 1 Onboarding Report · Jun 11–18, 2026</span>
+  <span>Generated with <strong>Alivia</strong> · Jun 18, 2026</span>
+</footer>
+</body>
+</html>
