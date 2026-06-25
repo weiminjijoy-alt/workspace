@@ -19,107 +19,94 @@
   </div>
   <div class="topnav-right">
     <button class="lang-btn" data-lang="en">EN</button>
-    <button class="lang-btn" data-lang="zh">&#x4E2D;</button>
+    <button class="lang-btn" data-lang="zh">中</button>
     <span class="nav-name">Weimin JI</span>
   </div>
 </nav>
 <div class="page-container">
   <div class="page-hero">
-    <h1 data-en="Project Tracker" data-zh="&#x9879;&#x76EE;&#x8DDF;&#x8E2A;">Project Tracker</h1>
-    <p data-en="Cross-week view of all projects. Week dots show involvement history." data-zh="&#x8DE8;&#x5468;&#x9879;&#x76EE;&#x89C6;&#x56FE;&#x3002;&#x5468;&#x6570;&#x70B9;&#x663E;&#x793A;&#x53C2;&#x4E0E;&#x5386;&#x53F2;&#x3002;">Cross-week view of all projects. Week dots show involvement history.</p>
+    <h1 data-en="Project Tracker" data-zh="项目跟踪">Project Tracker</h1>
+    <p data-en="All active projects with status definitions and weekly progress." data-zh="所有活跃项目及状态定义和每周进展。">All active projects with status definitions and weekly progress.</p>
   </div>
 
-  <div class="sec-hdr"><h2 data-en="Active Projects" data-zh="&#x6D3B;&#x8DC3;&#x9879;&#x76EE;">Active Projects</h2></div>
+  <!-- Status Legend -->
+  <div style="background:#fff;border:1px solid var(--g200);border-radius:var(--radius-md);padding:16px 24px;margin-bottom:28px;font-size:12px;color:var(--g500);line-height:1.8">
+    <strong style="color:var(--g800)" data-en="Project Status Definitions:" data-zh="项目状态定义：">Project Status Definitions:</strong><br>
+    <span style="color:var(--blue);font-weight:600">● Own</span> <span data-en="= Independently leading, accountable for delivery" data-zh="= 独立主导，对交付负责">= Independently leading, accountable for delivery</span> &nbsp;|&nbsp;
+    <span style="color:var(--blue);font-weight:600">● Active</span> <span data-en="= Contributing with partial ownership" data-zh="= 积极参与，承担部分责任">= Contributing with partial ownership</span> &nbsp;|&nbsp;
+    <span style="color:var(--amber);font-weight:600">● Shadowing</span> <span data-en="= Observing & learning" data-zh="= 观察学习中">= Observing & learning</span><br>
+    <span style="color:var(--g400);font-weight:600">● Monitoring</span> <span data-en="= Tracking via comms, no active involvement" data-zh="= 通过沟通群追踪，暂无主动介入">= Tracking via comms, no active involvement</span> &nbsp;|&nbsp;
+    <span style="color:var(--g400);font-weight:600">● Discovery</span> <span data-en="= Early stage, assessing fit" data-zh="= 早期阶段，评估匹配度">= Early stage, assessing fit</span> &nbsp;|&nbsp;
+    <span style="color:var(--amber);font-weight:600">● Preparing</span> <span data-en="= Deliverables ready, awaiting trigger" data-zh="= 交付物已就绪，等待触发">= Deliverables ready, awaiting trigger</span>
+  </div>
+
+  <div class="sec-hdr"><h2 data-en="Active Projects (7)" data-zh="活跃项目（7）">Active Projects (7)</h2></div>
 
   <div class="project-row">
     <div class="project-dot dot-active"></div>
     <div class="project-info">
-      <div class="project-name">&#x65B0;&#x8363;&#x8BB0; Xin Rong Ji</div>
-      <div class="project-sub" data-en="W2: Consulting review + client meeting. First direct client-facing engagement." data-zh="W2: Consulting&#x590D;&#x76D8; + &#x5BA2;&#x6237;&#x4F1A;&#x8BAE;&#x3002;&#x9996;&#x6B21;&#x76F4;&#x63A5;&#x5BA2;&#x6237;&#x5BF9;&#x63A5;&#x3002;">W2: Consulting review + client meeting. First direct client-facing engagement.</div>
+      <div class="project-name">中田 Zhongtian</div>
+      <div class="project-sub" data-en="Status: Own · First independent SA project. Client contact established W2. Requirements under clarification." data-zh="状态：独立负责 · 首个独立SA项目。W2已建立客户联系。需求明确中。">Status: Own · First independent SA project. Client contact established W2. Requirements under clarification.</div>
     </div>
     <span class="project-product">SpaceSight</span>
-    <div class="project-weeks">
-      <div class="week-dot">1</div>
-      <div class="week-dot current">2</div>
-      <div class="week-dot">3</div>
-      <div class="week-dot">4</div>
-    </div>
-  </div>
-
-  <div class="project-row">
-    <div class="project-dot dot-active"></div>
-    <div class="project-info">
-      <div class="project-name">&#x6D77;&#x4FE1; Hisense &middot; Channel AI Audit</div>
-      <div class="project-sub" data-en="W1: Partner meeting attended. W2: In comms group, follow-up ongoing." data-zh="W1: &#x53C2;&#x52A0;&#x5408;&#x4F5C;&#x4F19;&#x4F34;&#x4F1A;&#x8BAE;&#x3002;W2: &#x5728;&#x6C9F;&#x901A;&#x7FA4;&#xFF0C;&#x6301;&#x7EED;&#x8DDF;&#x8E2A;&#x3002;">W1: Partner meeting attended. W2: In comms group, follow-up ongoing.</div>
-    </div>
-    <span class="project-product">SpaceSight</span>
-    <div class="project-weeks">
-      <div class="week-dot filled">1</div>
-      <div class="week-dot current">2</div>
-      <div class="week-dot">3</div>
-      <div class="week-dot">4</div>
-    </div>
   </div>
 
   <div class="project-row">
     <div class="project-dot dot-active"></div>
     <div class="project-info">
-      <div class="project-name">&#x4E2D;&#x7530; Zhongtian</div>
-      <div class="project-sub" data-en="W2: SA support brief received. Passed to BD for SA/Consulting check (still shadowing)." data-zh="W2: &#x6536;&#x5230;SA&#x652F;&#x6301;&#x7B80;&#x62A5;&#x3002;&#x5DF2;&#x8F6C;BD&#x786E;&#x8BA4;SA/Consulting&#x652F;&#x6301;&#xFF08;&#x4ECD;&#x5728;shadowing&#xFF09;&#x3002;">W2: SA support brief received. Passed to BD for SA/Consulting check (still shadowing).</div>
+      <div class="project-name">新荣记 Xin Rong Ji</div>
+      <div class="project-sub" data-en="Status: Active · W1: Shadowing. W2: Full context mapped with Consulting, way-of-working documented. Client mtg cancelled but prep done." data-zh="状态：活跃参与 · W1: 观察。W2: 与Consulting完成全貌梳理，协作规范文档化。客户会议取消但准备完成。">Status: Active · W1: Shadowing. W2: Full context mapped with Consulting, way-of-working documented. Client mtg cancelled but prep done.</div>
     </div>
     <span class="project-product">SpaceSight</span>
-    <div class="project-weeks">
-      <div class="week-dot">1</div>
-      <div class="week-dot current">2</div>
-      <div class="week-dot">3</div>
-      <div class="week-dot">4</div>
+  </div>
+
+  <div class="project-row">
+    <div class="project-dot dot-active"></div>
+    <div class="project-info">
+      <div class="project-name">正项 Zhengxiang · Channel Partner</div>
+      <div class="project-sub" data-en="Status: Active · W1: Channel training attended. W2: Partner meeting — POC scope, scenarios & deployment approach confirmed. Ongoing." data-zh="状态：活跃参与 · W1: 参加渠道培训。W2: 合作方会议——确认POC范围、场景与部署方案。持续跟进中。">Status: Active · W1: Channel training attended. W2: Partner meeting — POC scope, scenarios & deployment approach confirmed. Ongoing.</div>
     </div>
+    <span class="project-product">SpaceSight</span>
+  </div>
+
+  <div class="project-row">
+    <div class="project-dot dot-active"></div>
+    <div class="project-info">
+      <div class="project-name">日产-中翔邦泰 · 慢闪店客流</div>
+      <div class="project-sub" data-en="Status: Shadowing · W2: Joined channel project group. Learning partner deal patterns and project dynamics." data-zh="状态：跟随观察 · W2: 加入渠道项目群。学习合作伙伴交易模式与项目动态。">Status: Shadowing · W2: Joined channel project group. Learning partner deal patterns and project dynamics.</div>
+    </div>
+    <span class="project-product">SpaceSight</span>
+  </div>
+
+  <div class="project-row">
+    <div class="project-dot dot-active"></div>
+    <div class="project-info">
+      <div class="project-name">海信 Hisense · Channel AI Audit</div>
+      <div class="project-sub" data-en="Status: Monitoring · W1: Partner meeting attended. W2: In comms group, no new activity. Continuing to track." data-zh="状态：持续监控 · W1: 参加合作伙伴会议。W2: 在沟通群，无新动态。持续追踪。">Status: Monitoring · W1: Partner meeting attended. W2: In comms group, no new activity. Continuing to track.</div>
+    </div>
+    <span class="project-product">SpaceSight</span>
   </div>
 
   <div class="project-row">
     <div class="project-dot dot-discovery"></div>
     <div class="project-info">
-      <div class="project-name">&#x534E;&#x4E3A; Huawei &middot; Railway Project</div>
-      <div class="project-sub" data-en="W1&#x2013;W2: In comms group. Requirements under clarification. No client meeting yet." data-zh="W1&#x2013;W2: &#x5728;&#x6C9F;&#x901A;&#x7FA4;&#x3002;&#x9700;&#x6C42;&#x5F85;&#x786E;&#x8BA4;&#x3002;&#x5C1A;&#x672A;&#x5BA2;&#x6237;&#x4F1A;&#x8BAE;&#x3002;">W1-W2: In comms group. Requirements under clarification. No client meeting yet.</div>
+      <div class="project-name">华为 Huawei · Railway Project</div>
+      <div class="project-sub" data-en="Status: Discovery · W1–W2: In comms group. Requirements under clarification. No client meeting yet. Early stage." data-zh="状态：早期探索 · W1–W2: 在沟通群。需求待确认。尚未客户会议。早期阶段。">Status: Discovery · W1–W2: In comms group. Requirements under clarification. No client meeting yet. Early stage.</div>
     </div>
     <span class="project-product">TBD</span>
-    <div class="project-weeks">
-      <div class="week-dot filled">1</div>
-      <div class="week-dot current">2</div>
-      <div class="week-dot">3</div>
-      <div class="week-dot">4</div>
-    </div>
   </div>
 
-  <div class="divider"></div>
-
-  <div class="sec-hdr"><h2 data-en="Completed / Paused" data-zh="&#x5DF2;&#x5B8C;&#x6210; / &#x6682;&#x505C;">Completed / Paused</h2></div>
-
-  <div class="project-row" style="opacity:.6">
-    <div class="project-dot dot-done"></div>
+  <div class="project-row">
+    <div class="project-dot dot-active"></div>
     <div class="project-info">
-      <div class="project-name">&#x6B63;&#x9879; Zhengfang &middot; Channel Partner</div>
-      <div class="project-sub" data-en="W1: SpaceSight channel training session attended. Completed." data-zh="W1: &#x53C2;&#x52A0;SpaceSight&#x6E20;&#x9053;&#x57F9;&#x8BAD;&#x3002;&#x5DF2;&#x5B8C;&#x6210;&#x3002;">W1: SpaceSight channel training session attended. Completed.</div>
+      <div class="project-name">APAC (multiple) · EN Demo Support</div>
+      <div class="project-sub" data-en="Status: Preparing · W1: Attended 3 APAC BD/SA sessions. W2: Demo script completed. Awaiting BD trigger for client-facing delivery." data-zh="状态：准备就绪 · W1: 参加3次APAC BD/SA会议。W2: Demo脚本已完成。等待BD触发后进行客户交付。">Status: Preparing · W1: Attended 3 APAC BD/SA sessions. W2: Demo script completed. Awaiting BD trigger for client-facing delivery.</div>
     </div>
-    <span class="project-product">SpaceSight</span>
-    <div class="project-weeks">
-      <div class="week-dot filled">1</div>
-    </div>
+    <span class="project-product">Multiple</span>
   </div>
 
-  <div class="project-row" style="opacity:.6">
-    <div class="project-dot dot-done"></div>
-    <div class="project-info">
-      <div class="project-name">&#x5408;&#x8BED;&#x79D1;&#x6280; Heyu Technology</div>
-      <div class="project-sub" data-en="W1: SpaceSight training done. Echo session TBD." data-zh="W1: SpaceSight&#x57F9;&#x8BAD;&#x5B8C;&#x6210;&#x3002;Echo&#x4F1A;&#x8BAE;&#x5F85;&#x5B9A;&#x3002;">W1: SpaceSight training done. Echo session TBD.</div>
-    </div>
-    <span class="project-product">SpaceSight / Echo</span>
-    <div class="project-weeks">
-      <div class="week-dot filled">1</div>
-    </div>
-  </div>
 </div>
-<div class="site-footer">Whale &middot; Weimin JI &middot; SA / Presales Workspace &middot; Powered by Alivia</div>
+<div class="site-footer">Whale · Weimin JI · SA / Presales Workspace · Powered by Alivia</div>
 <script src="assets/app.js"></script>
 <script>WhaleAuth.guard();</script>
 </body>
