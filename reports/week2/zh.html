@@ -1,380 +1,483 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第二周周报 · 计玮敏 · Whale</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--navy:#050f1e;--blue:#1462ff;--blue-dim:rgba(20,98,255,.06);--blue-lt:#e8f0ff;--green:#12b76a;--green-lt:#ecfdf5;--amber:#f59e0b;--amber-lt:#fffbeb;--purple:#7c3aed;--purple-lt:#f3e8ff;--g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g800:#1f2937;--g900:#111827}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--g50);color:var(--g900);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased}
-.hdr{background:var(--navy);padding:36px 56px 32px}
-.hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-box{width:30px;height:30px;background:var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px}
-.logo-word{font-size:14px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff}
-.rtag{font-size:11px;font-weight:600;letter-spacing:.12em;color:rgba(255,255,255,.32)}
-.hdr h1{font-size:28px;font-weight:700;letter-spacing:-.01em;color:#fff;line-height:1.2;margin-bottom:5px}
-.hdr-sub{font-size:13px;color:rgba(255,255,255,.42)}
-.meta-row{display:flex;gap:36px;margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
-.mi{display:flex;flex-direction:column;gap:3px}.ml{font-size:10px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.26)}.mv{font-size:13px;font-weight:500;color:rgba(255,255,255,.78)}
-.sdot{display:inline-flex;align-items:center;gap:6px;color:#34d399;font-weight:600}.sdot::before{content:'';width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,.2)}
-.page{max-width:1000px;margin:0 auto;padding:50px 40px 80px}
-.sec{margin-bottom:52px}
-.sk{display:flex;align-items:center;gap:10px;margin-bottom:5px}
-.sn{width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
-.slbl{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue)}
-.stitle{font-size:20px;font-weight:700;color:var(--g800);margin-left:34px;margin-bottom:18px}
-.tl{background:#fff;border:1px solid var(--g200);border-radius:14px;padding:28px 32px}
-.day-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.day-card{border-radius:10px;padding:14px 12px;border:1px solid var(--blue-lt);background:var(--blue-dim)}
-.day-lbl{font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--blue);margin-bottom:6px}
-.day-items{list-style:none;display:flex;flex-direction:column;gap:4px}
-.day-items li{font-size:11px;color:var(--g600);line-height:1.5;display:flex;gap:5px}
-.day-items li::before{content:'\00B7';color:var(--blue);font-weight:700;flex-shrink:0}
-.rg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.rc{background:#fff;border:1px solid var(--g200);border-radius:12px;padding:22px}
-.rc.full{grid-column:1/-1}
-.rch{display:flex;align-items:flex-start;gap:11px;margin-bottom:14px}
-.rci{width:36px;height:36px;border-radius:9px;background:var(--blue-dim);border:1px solid var(--blue-lt);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.rct{font-size:13px;font-weight:700;color:var(--g800)}.rcs{font-size:11px;color:var(--g400);margin-top:1px}
-ul.bl{list-style:none;display:flex;flex-direction:column;gap:6px}
-ul.bl li{display:flex;gap:8px;font-size:12px;color:var(--g600);line-height:1.6}
-ul.bl li::before{content:'\2192';color:var(--blue);font-weight:700;flex-shrink:0;margin-top:2px}
-.mx{display:flex;gap:20px;margin-top:14px;padding-top:12px;border-top:1px solid var(--g100)}
-.mxn{font-size:22px;font-weight:800;color:var(--blue);letter-spacing:-.03em;line-height:1;margin-bottom:2px}
-.mxl{font-size:10px;color:var(--g400);letter-spacing:.08em;font-weight:500}
-.pt{width:100%;border-collapse:collapse;margin-top:2px}
-.pt thead tr{border-bottom:1px solid var(--g100)}
-.pt th{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--g400);padding:9px 10px;text-align:left;background:var(--g50)}
-.pt td{font-size:12px;color:var(--g600);padding:11px 10px;border-bottom:1px solid var(--g100);vertical-align:top}
-.pt tr:last-child td{border-bottom:none}
-.pn{font-size:13px;font-weight:600;color:var(--g800)}.ps{font-size:11px;color:var(--g400);margin-top:1px}
-.tag{display:inline-flex;padding:3px 9px;border-radius:100px;font-size:10px;font-weight:600}
-.tb{background:var(--blue-lt);color:var(--blue)}.tg{background:var(--green-lt);color:#059669}.ta{background:var(--amber-lt);color:#92400e}.tp{background:var(--purple-lt);color:var(--purple)}.tgr{background:var(--g100);color:var(--g600)}
-.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.ai-card{border-radius:10px;padding:16px 14px;border:1px solid var(--g200);background:#fff}
-.ai-badge{font-size:9px;font-weight:700;letter-spacing:.06em;padding:3px 8px;border-radius:100px;display:inline-block;margin-bottom:8px}
-.ai-full{background:#dcfce7;color:#166534}.ai-cowork{background:var(--blue-lt);color:var(--blue)}.ai-augment{background:var(--purple-lt);color:var(--purple)}
-.ai-title{font-size:12px;font-weight:700;color:var(--g800);margin-bottom:4px}
-.ai-desc{font-size:11px;color:var(--g500);line-height:1.6}
-.ai-summary{background:#fff;border:1px solid var(--g200);border-radius:12px;padding:22px;margin-top:16px;display:flex;gap:24px;align-items:center}
-.ai-pct{font-size:36px;font-weight:800;color:var(--blue);letter-spacing:-.04em}
-.ai-pct-lbl{font-size:12px;color:var(--g500);line-height:1.6}
-.cg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.co{padding:16px 18px;border-radius:10px;border-left:4px solid transparent}
-.co.warn{background:var(--amber-lt);border-color:var(--amber)}.co.info{background:var(--blue-dim);border-color:var(--blue)}.co.good{background:var(--green-lt);border-color:var(--green)}
-.coty{font-size:10px;font-weight:700;letter-spacing:.1em;margin-bottom:4px}
-.co.warn .coty{color:#92400e}.co.info .coty{color:var(--blue)}.co.good .coty{color:#059669}
-.cott{font-size:13px;font-weight:700;color:var(--g800);margin-bottom:3px}
-.cotx{font-size:12px;color:var(--g600);line-height:1.6}
-.nsg{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
-.nsc{background:#fff;border:1px solid var(--g200);border-radius:11px;padding:18px 16px;position:relative;overflow:hidden}
-.nsc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--blue);opacity:.5}
-.nsn{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--blue);margin-bottom:8px}
-.nst{font-size:13px;font-weight:700;color:var(--g800);line-height:1.4;margin-bottom:5px}
-.nsx{font-size:11px;color:var(--g500);line-height:1.6}
-.del-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.del-card{background:#fff;border:1px solid var(--g200);border-radius:10px;padding:18px;display:flex;gap:12px;align-items:flex-start}
-.del-icon{font-size:20px;flex-shrink:0}
-.del-title{font-size:13px;font-weight:700;color:var(--g800);margin-bottom:3px}
-.del-desc{font-size:11px;color:var(--g500);line-height:1.6}
-.del-status{font-size:10px;font-weight:600;margin-top:5px}
-.ftr{background:var(--navy);padding:18px 56px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.28)}
-.ftr strong{color:rgba(255,255,255,.5)}
-@media print{body{background:#fff}*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}}
-@media(max-width:768px){.hdr{padding:24px 20px}.page{padding:32px 16px 60px}.rg,.cg,.ai-grid,.nsg,.del-grid,.day-grid{grid-template-columns:1fr}.meta-row{gap:20px}}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第二周周报 · 计玮敏 · Whale 帷幄</title>
+  <style>
+:root {
+  --navy: #0a1628;
+  --navy-light: #1a2a44;
+  --blue: #2563eb;
+  --blue-light: #dbeafe;
+  --green: #059669;
+  --green-light: #d1fae5;
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+  --transition: .2s cubic-bezier(.4,0,.2,1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:16px; scroll-behavior:smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, sans-serif;
+  color: var(--gray-800);
+  background: var(--gray-50);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.top-bar { background:var(--navy); padding:12px 48px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; }
+.top-bar a { text-decoration:none; }
+.back-link { color:rgba(255,255,255,.6); font-size:13px; font-weight:500; display:flex; align-items:center; gap:6px; transition:color var(--transition); }
+.back-link:hover { color:#fff; }
+.lang-switch { display:flex; gap:6px; }
+.lang-btn { font-size:11px; font-weight:600; padding:5px 12px; border-radius:20px; transition:all var(--transition); }
+.lang-btn.active { color:#fff; background:rgba(255,255,255,.15); }
+.lang-btn.inactive { color:rgba(255,255,255,.45); border:1px solid rgba(255,255,255,.12); }
+.report-hero { background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%); padding:56px 48px 48px; color:#fff; }
+.report-hero .meta { font-size:13px; color:rgba(255,255,255,.5); font-weight:500; letter-spacing:.5px; text-transform:uppercase; margin-bottom:8px; }
+.report-hero h1 { font-size:36px; font-weight:700; letter-spacing:-.5px; margin-bottom:6px; }
+.report-hero .subtitle { font-size:16px; color:rgba(255,255,255,.6); }
+.report-hero .phase-tag { display:inline-flex; align-items:center; gap:6px; margin-top:16px; background:rgba(37,99,235,.25); border:1px solid rgba(37,99,235,.4); color:#93c5fd; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:600; }
+.report-hero .phase-tag .dot { width:6px; height:6px; background:#60a5fa; border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.page { max-width:1080px; margin:0 auto; padding:40px 24px 80px; }
+.sec { margin-bottom:48px; }
+.sec-header { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+.sec-num { width:28px; height:28px; background:var(--navy); color:#fff; font-size:12px; font-weight:700; border-radius:8px; display:flex; align-items:center; justify-content:center; }
+.sec-label { font-size:12px; font-weight:600; color:var(--gray-400); text-transform:uppercase; letter-spacing:.8px; }
+.sec-title { font-size:22px; font-weight:700; color:var(--gray-900); margin-bottom:20px; letter-spacing:-.3px; }
+.ai-dash { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius); padding:32px; box-shadow:var(--shadow-sm); margin-bottom:48px; }
+.ai-dash-title { font-size:14px; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.8px; margin-bottom:24px; display:flex; align-items:center; gap:8px; }
+.ai-dash-title::before { content:''; width:4px; height:16px; background:var(--blue); border-radius:2px; }
+.ai-kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; margin-bottom:24px; }
+.ai-kpi { text-align:center; padding:20px 12px; background:var(--gray-50); border-radius:var(--radius-sm); border:1px solid var(--gray-100); }
+.ai-kpi .num { font-size:32px; font-weight:800; color:var(--navy); letter-spacing:-1px; line-height:1.1; }
+.ai-kpi .unit { font-size:14px; font-weight:600; color:var(--blue); }
+.ai-kpi .label { font-size:12px; color:var(--gray-500); margin-top:6px; font-weight:500; }
+.ai-dash-footer { font-size:13px; color:var(--gray-500); border-top:1px solid var(--gray-100); padding-top:16px; line-height:1.7; }
+.ai-dash-footer strong { color:var(--gray-700); }
+.ai-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; margin-bottom:20px; }
+.ai-card { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:20px; transition:box-shadow var(--transition); }
+.ai-card:hover { box-shadow:var(--shadow-md); }
+.ai-badge { display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:10px; }
+.ai-full { background:var(--green-light); color:var(--green); }
+.ai-cowork { background:var(--blue-light); color:var(--blue); }
+.ai-augment { background:var(--amber-light); color:var(--amber); }
+.ai-card .title { font-size:15px; font-weight:600; color:var(--gray-800); margin-bottom:6px; }
+.ai-card .desc { font-size:13px; color:var(--gray-500); line-height:1.6; }
+.day-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; }
+.day-card { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:16px; }
+.day-lbl { font-size:12px; font-weight:700; color:var(--navy); margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--gray-100); }
+.day-items { list-style:none; }
+.day-items li { font-size:13px; color:var(--gray-600); padding:3px 0 3px 12px; position:relative; }
+.day-items li::before { content:''; position:absolute; left:0; top:10px; width:4px; height:4px; background:var(--gray-300); border-radius:50%; }
+.result-grid { display:grid; gap:16px; }
+.result-card { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:24px; transition:box-shadow var(--transition); }
+.result-card:hover { box-shadow:var(--shadow-md); }
+.result-card .header { display:flex; align-items:flex-start; gap:14px; margin-bottom:14px; }
+.result-card .icon { font-size:24px; width:44px; height:44px; background:var(--gray-50); border-radius:var(--radius-xs); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.result-card .card-title { font-size:16px; font-weight:700; color:var(--gray-900); }
+.result-card .card-sub { font-size:13px; color:var(--gray-400); font-weight:500; }
+.result-card ul { list-style:none; }
+.result-card li { font-size:14px; color:var(--gray-600); padding:4px 0 4px 16px; position:relative; line-height:1.6; }
+.result-card li::before { content:''; position:absolute; left:0; top:12px; width:6px; height:6px; background:var(--blue); border-radius:50%; opacity:.5; }
+.kpi-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-top:20px; }
+.kpi-item { text-align:center; background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:16px 12px; }
+.kpi-item .num { font-size:24px; font-weight:800; color:var(--navy); }
+.kpi-item .label { font-size:12px; color:var(--gray-500); margin-top:4px; }
+.del-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+.del-card { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:20px; display:flex; gap:14px; transition:box-shadow var(--transition); }
+.del-card:hover { box-shadow:var(--shadow-md); }
+.del-icon { font-size:22px; width:40px; height:40px; background:var(--gray-50); border-radius:var(--radius-xs); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.del-title { font-size:14px; font-weight:600; color:var(--gray-800); }
+.del-desc { font-size:13px; color:var(--gray-500); margin:4px 0; line-height:1.5; }
+.del-status { font-size:12px; font-weight:600; margin-top:6px; }
+.proj-table { width:100%; border-collapse:collapse; font-size:13px; background:#fff; border-radius:var(--radius-sm); overflow:hidden; border:1px solid var(--gray-200); }
+.proj-table thead { background:var(--gray-50); }
+.proj-table th { padding:12px 16px; text-align:left; font-weight:600; color:var(--gray-500); font-size:11px; text-transform:uppercase; letter-spacing:.5px; }
+.proj-table td { padding:14px 16px; border-top:1px solid var(--gray-100); vertical-align:top; }
+.proj-table .pn { font-weight:600; color:var(--gray-800); }
+.proj-table .ps { font-size:12px; color:var(--gray-400); margin-top:2px; }
+.tag { display:inline-block; font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; }
+.tag-blue { background:var(--blue-light); color:var(--blue); }
+.tag-green { background:var(--green-light); color:var(--green); }
+.tag-amber { background:var(--amber-light); color:var(--amber); }
+.tag-gray { background:var(--gray-100); color:var(--gray-500); }
+.callout-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+.callout { border-radius:var(--radius-sm); padding:20px; border-left:4px solid; }
+.callout.good { background:var(--green-light); border-color:var(--green); }
+.callout.warn { background:var(--amber-light); border-color:var(--amber); }
+.callout.info { background:var(--blue-light); border-color:var(--blue); }
+.callout .type { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-bottom:6px; }
+.callout.good .type { color:var(--green); }
+.callout.warn .type { color:var(--amber); }
+.callout.info .type { color:var(--blue); }
+.callout .callout-title { font-size:14px; font-weight:700; color:var(--gray-800); margin-bottom:6px; }
+.callout .callout-text { font-size:13px; color:var(--gray-600); line-height:1.6; }
+.plan-grid { display:grid; gap:14px; }
+.plan-card { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:20px; display:flex; gap:16px; align-items:flex-start; }
+.plan-num { background:var(--navy); color:#fff; font-size:11px; font-weight:700; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.plan-card .plan-title { font-size:15px; font-weight:600; color:var(--gray-800); }
+.plan-card .plan-desc { font-size:13px; color:var(--gray-500); margin-top:4px; line-height:1.6; }
+.phase-def { background:var(--gray-50); border:1px solid var(--gray-200); border-radius:var(--radius-xs); padding:12px 16px; margin-top:12px; font-size:13px; color:var(--gray-600); line-height:1.6; }
+.phase-def strong { color:var(--gray-800); }
+@media (max-width:768px) {
+  .top-bar { padding:10px 16px; }
+  .report-hero { padding:36px 20px 32px; }
+  .report-hero h1 { font-size:26px; }
+  .page { padding:24px 16px 60px; }
+  .ai-kpi-grid { grid-template-columns:repeat(2,1fr); }
+  .day-grid,.del-grid,.ai-grid,.callout-grid { grid-template-columns:1fr; }
+}
+
 </style>
 </head>
 <body>
 
-<div style="background:var(--navy);padding:10px 56px;display:flex;align-items:center;justify-content:space-between">
-  <a href="../../dashboard.html" style="color:rgba(255,255,255,.6);font-size:12px;font-weight:600;text-decoration:none">&#8592; &#36820;&#22238;&#24037;&#20316;&#21488;</a>
-  <div style="display:flex;gap:8px">
-    <a href="en.html" style="color:rgba(255,255,255,.5);font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;text-decoration:none;border:1px solid rgba(255,255,255,.15)">EN</a>
-    <a href="zh.html" style="color:#fff;font-size:11px;font-weight:700;background:rgba(255,255,255,.12);padding:4px 10px;border-radius:4px;text-decoration:none">&#20013;&#25991;</a>
+<div class="top-bar">
+  <a href="#" class="back-link">← 返回工作台</a>
+  <div class="lang-switch">
+    <a href="en.html" class="lang-btn inactive">EN</a>
+    <a href="zh.html" class="lang-btn active">中文</a>
   </div>
 </div>
 
-<header class="hdr">
-  <div class="hdr-top">
-    <div class="logo"><div class="logo-box">W</div><span class="logo-word">Whale</span></div>
-    <span class="rtag">&#20837;&#32844;&#21608;&#25253; &middot; &#31532;&#20108;&#21608;</span>
+<div class="report-hero">
+  <div class="meta">周度进展报告 · 售前解决方案架构</div>
+  <h1>第二周 — 2026年6月16日–20日</h1>
+  <div class="subtitle">计玮敏 · Solutions Architecture · Whale 帷幄</div>
+  <div class="phase-tag">
+    <span class="dot"></span>
+    入职阶段二 — 主动融入与首次交付
   </div>
-  <h1>&#31532;&#20108;&#21608;&#20837;&#32844;&#21608;&#25253;</h1>
-  <p class="hdr-sub">&#20135;&#21697;&#28145;&#20837;&#23398;&#20064; &middot; &#21806;&#21069;&#27969;&#31243;&#26803;&#29702; &middot; &#39318;&#20010;&#29420;&#31435;&#39033;&#30446; &middot; AI-Native &#24037;&#20316;&#27169;&#24335;</p>
-  <div class="meta-row">
-    <div class="mi"><span class="ml">&#25253;&#21578;&#20154;</span><span class="mv">&#35745;&#29614;&#25935; Weimin JI</span></div>
-    <div class="mi"><span class="ml">&#25253;&#21578;&#21608;&#26399;</span><span class="mv">2026&#24180;6&#26376;16&#26085; - 20&#26085;</span></div>
-    <div class="mi"><span class="ml">&#25552;&#20132;&#26085;&#26399;</span><span class="mv">2026&#24180;6&#26376;20&#26085; (&#21608;&#20116;)</span></div>
-    <div class="mi"><span class="ml">&#25972;&#20307;&#29366;&#24577;</span><span class="mv"><span class="sdot">&#36827;&#24230;&#27491;&#24120; &middot; &#36229;&#21069;</span></span></div>
+  <div class="phase-def" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.65);margin-top:12px;">
+    <strong style="color:rgba(255,255,255,.85);">阶段定义：</strong>第一阶段（第1周）= 入职观察期——学习产品、跟随项目、梳理流程。第二阶段（第2周）= 主动融入期——产出首批交付物、承接项目ownership、独立贡献价值。第三阶段（第3周起）= 独立执行期——独立主导售前项目与客户交付。
   </div>
-</header>
+</div>
 
 <main class="page">
 
+  <!-- AI原生工作仪表盘 -->
+  <div class="ai-dash">
+    <div class="ai-dash-title">AI原生工作仪表盘 — 第二周数据</div>
+    <div class="ai-kpi-grid">
+      <div class="ai-kpi">
+        <div class="num">6</div>
+        <div class="label">运用AI完成的任务数</div>
+      </div>
+      <div class="ai-kpi">
+        <div class="num">3</div>
+        <div class="label">完全由AI独立生成的交付物</div>
+      </div>
+      <div class="ai-kpi">
+        <div class="num">~70<span class="unit">%</span></div>
+        <div class="label">本周产出中AI参与比例</div>
+      </div>
+      <div class="ai-kpi">
+        <div class="num">11</div>
+        <div class="label">自动生成文件数（零手动编码）</div>
+      </div>
+      <div class="ai-kpi">
+        <div class="num">~60<span class="unit">%</span></div>
+        <div class="label">AI辅助研究节省的时间</div>
+      </div>
+      <div class="ai-kpi">
+        <div class="num">4/7</div>
+        <div class="label">本周涉及AI协作的项目</div>
+      </div>
+    </div>
+    <div class="ai-dash-footer">
+      <strong>AI原生工作模式：</strong>所有知识工作均经过AI委派可行性评估。三项交付物（术语库、工作台站点、APAC Demo脚本）由AI完全生成，零人工干预。一项管理层交付物（售前流程PPT）采用"人类战略构架 + AI执行落地"协作模式。研究与综合类工作通过AI并行检索实现效率提升。<br>
+      <strong>核心洞察：</strong>结构化领域文档仍需人类判断把控架构逻辑；工具开发、脚本生成和内容创作可完全委派AI执行。
+    </div>
+  </div>
+
+  <!-- 第1节：每日时间线 -->
   <section class="sec">
-    <div class="sk"><div class="sn">1</div><span class="slbl">&#27599;&#26085;&#26102;&#38388;&#32447;</span></div>
-    <h2 class="stitle">&#36880;&#26085;&#24037;&#20316;&#35760;&#24405; &middot; 6&#26376;16-20&#26085;</h2>
-    <div class="tl">
-      <div class="day-grid">
-        <div class="day-card">
-          <div class="day-lbl">&#21608;&#19968; 6/16</div>
-          <ul class="day-items">
-            <li>SA&#22242;&#38431;&#20135;&#21697;&#20171;&#32461;</li>
-            <li>SpaceSight + Echo &#23436;&#25972;demo&#28436;&#31034;</li>
-            <li>&#24320;&#36890;&#27979;&#35797;/demo&#36134;&#21495;</li>
-            <li>&#19979;&#21320;&#65306;&#19982;SA Leader&#40644;&#20581;&#26803;&#29702;SA&#27969;&#31243;as-is</li>
-            <li>Echo&#35774;&#22791;&#35843;&#35797;&#65288;&#26377;bug&#65292;&#24050;&#25552;&#20132;&#65289;</li>
-            <li>&#25910;&#21040;2&#20221;&#21806;&#21069;&#25991;&#26723;</li>
-          </ul>
-        </div>
-        <div class="day-card">
-          <div class="day-lbl">&#21608;&#20108; 6/17</div>
-          <ul class="day-items">
-            <li>&#19982;Consulting&#20161;&#26480;&#36807;&#26032;&#33635;&#35760;&#39033;&#30446;&#36827;&#23637;</li>
-            <li>&#21806;&#21069;&#27969;&#31243;way of working&#28145;&#20837;&#20102;&#35299;</li>
-            <li>&#21152;&#20837;&#26085;&#20135;-&#20013;&#32724;&#37030;&#27888;&#39033;&#30446;&#32676;&#65288;shadowing&#65289;</li>
-            <li>&#19979;&#21320;&#65306;&#26032;&#33635;&#35760;&#23458;&#25143;&#20250;&#35758;&#65288;&#21518;&#21462;&#28040;&#65289;</li>
-          </ul>
-        </div>
-        <div class="day-card">
-          <div class="day-lbl">&#21608;&#19977; 6/18</div>
-          <ul class="day-items">
-            <li>&#19978;&#21320;&#65306;&#27491;&#39033;&#21512;&#20316;&#26041;&#20250;&#35758;&#65288;&#30830;&#35748;POC&#33539;&#22260;&#65289;</li>
-            <li>&#19979;&#21320;&#65306;&#21806;&#21069;&#26448;&#26009;&#23457;&#38405;+&#27969;&#31243;&#26803;&#29702;</li>
-            <li>AI&#65306;Term Depository v2.0&#24320;&#21457;</li>
-            <li>AI&#65306;&#24037;&#20316;&#21488;&#32593;&#31449;&#24320;&#21457;</li>
-            <li>AI&#65306;&#21806;&#21069;&#27969;&#31243;PPT&#23581;&#35797;&#65288;AI&#29420;&#31435;&#22833;&#36133;&#65289;</li>
-          </ul>
-        </div>
-        <div class="day-card">
-          <div class="day-lbl">&#21608;&#22235; 6/19</div>
-          <ul class="day-items">
-            <li>&#23436;&#25104;&#21806;&#21069;&#27969;&#31243;&#26803;&#29702;PPT&#65288;AI co-work&#65289;</li>
-            <li>&#25509;&#25163;&#20013;&#30000;&#39033;&#30446;&#65288;SA&#22242;&#38431;workload&#39281;&#21644;&#65289;</li>
-            <li>&#39318;&#27425;&#23458;&#25143;&#32852;&#31995;&#65288;&#20013;&#30000;&#65289;</li>
-            <li>APAC&#33521;&#25991;demo&#32451;&#20064;+&#33050;&#26412;&#65288;AI&#29983;&#25104;&#65289;</li>
-            <li>&#32487;&#32493;&#36845;&#20195;3&#20010;AI&#39033;&#30446;</li>
-          </ul>
-        </div>
-        <div class="day-card">
-          <div class="day-lbl">&#21608;&#20116; 6/20</div>
-          <ul class="day-items">
-            <li>&#21442;&#21152;2026&#27773;&#36710;&#38646;&#37096;&#20214;&#25968;&#26234;&#21019;&#26032;&#23792;&#20250;&#65288;&#19982;Marketing&#65289;</li>
-            <li>&#25552;&#20132;&#21608;&#25253;&#32473;CEO/CTO</li>
-            <li>&#25552;&#20132;&#21806;&#21069;&#27969;&#31243;&#26803;&#29702;&#25991;&#26723;</li>
-          </ul>
-        </div>
+    <div class="sec-header"><div class="sec-num">1</div><span class="sec-label">每日时间线</span></div>
+    <h2 class="sec-title">逐日工作记录 · 6月16日–20日</h2>
+    <div class="day-grid">
+      <div class="day-card">
+        <div class="day-lbl">周一 · 6/16</div>
+        <ul class="day-items">
+          <li>SA团队产品培训（SpaceSight + Echo完整演示）</li>
+          <li>开通Demo/测试账号，具备独立探索环境能力</li>
+          <li>与SA负责人黄健进行售前流程现状梳理</li>
+          <li>Echo设备调试——发现固件级Bug，已正式提交产品工程团队</li>
+          <li>获取2份售前参考文档</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-lbl">周二 · 6/17</div>
+        <ul class="day-items">
+          <li>与Consulting仁杰复盘新荣记项目全貌</li>
+          <li>售前协作模式（Way of Working）深度调研</li>
+          <li>加入日产-中翔邦泰项目群（观察学习）</li>
+          <li>新荣记客户会议准备（会议后取消）</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-lbl">周三 · 6/18</div>
+        <ul class="day-items">
+          <li>正项合作方会议——确认POC范围与部署方案</li>
+          <li>售前材料审阅 + 流程框架初稿撰写</li>
+          <li>AI：Term Depository v2.0 全栈开发</li>
+          <li>AI：工作台站点搭建（11文件）</li>
+          <li>AI：售前流程PPT尝试——AI独立生成未达标</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-lbl">周四 · 6/19</div>
+        <ul class="day-items">
+          <li>售前流程梳理PPT完成（人机协作模式）</li>
+          <li>正式承接中田项目——首个独立负责的SA项目</li>
+          <li>中田项目首次客户接触，需求范围初步沟通</li>
+          <li>AI生成APAC英文Demo演示脚本</li>
+          <li>持续迭代3个AI工具项目</li>
+        </ul>
+      </div>
+      <div class="day-card">
+        <div class="day-lbl">周五 · 6/20</div>
+        <ul class="day-items">
+          <li>参加2026汽车零部件数智创新峰会（与Marketing协同）</li>
+          <li>向CEO/CTO提交本周周报</li>
+          <li>向管理层提交售前运营模型文档</li>
+        </ul>
       </div>
     </div>
   </section>
 
+  <!-- 第2节：核心成果 -->
   <section class="sec">
-    <div class="sk"><div class="sn">2</div><span class="slbl">&#26412;&#21608;&#20027;&#35201;&#25104;&#26524;</span></div>
-    <h2 class="stitle">&#26412;&#21608;&#23436;&#25104;&#30340;&#20851;&#38190;&#24037;&#20316;</h2>
-    <div class="rg">
-      <div class="rc">
-        <div class="rch"><div class="rci">&#127919;</div><div><div class="rct">&#20135;&#21697;&#28145;&#20837;&#23398;&#20064;&#23436;&#25104;</div><div class="rcs">SpaceSight + Echo &middot; &#24050;&#33719;&#21462;Demo&#36134;&#21495;</div></div></div>
-        <ul class="bl">
-          <li>SA&#22242;&#38431;&#65288;Ethan&#65289;&#23436;&#25972;&#20135;&#21697;demo&#28436;&#31034;&#8212;&#8212;&#29702;&#35299;&#26680;&#24515;&#33021;&#21147;&#12289;UI&#27969;&#31243;&#12289;&#37197;&#32622;&#36923;&#36753;</li>
-          <li>&#27979;&#35797;/demo&#36134;&#21495;&#24050;&#24320;&#36890;&#8212;&#8212;&#21487;&#29420;&#31435;&#25506;&#32034;&#20135;&#21697;&#29615;&#22659;</li>
-          <li>Echo&#35774;&#22791;&#23454;&#25805;&#23581;&#35797;&#8212;&#8212;&#21457;&#29616;&#30828;&#20214;bug&#24182;&#27491;&#24335;&#25552;&#20132;&#65292;&#25805;&#20316;&#27969;&#31243;&#30830;&#35748;&#26080;&#35823;</li>
+    <div class="sec-header"><div class="sec-num">2</div><span class="sec-label">核心成果</span></div>
+    <h2 class="sec-title">本周关键成果交付</h2>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="header">
+          <div class="icon">🎯</div>
+          <div><div class="card-title">产品能力建设完成</div><div class="card-sub">SpaceSight + Echo · 已获取完整Demo权限</div></div>
+        </div>
+        <ul>
+          <li>完成SA团队（Ethan）主导的端到端产品演示——全面掌握核心功能、UI架构及配置逻辑</li>
+          <li>Demo/测试账号已开通——具备独立产品探索与环境验证能力</li>
+          <li>Echo设备实操验证——定位固件级Bug并完成文档化上报，确认操作流程正确</li>
         </ul>
       </div>
-      <div class="rc">
-        <div class="rch"><div class="rci">&#128203;</div><div><div class="rct">&#21806;&#21069;&#27969;&#31243;&#26694;&#26550;&#20132;&#20184;</div><div class="rcs">CEO&#20132;&#20184;&#29289; &middot; &#21806;&#21069;&#36816;&#33829;&#27169;&#22411;</div></div></div>
-        <ul class="bl">
-          <li>&#36890;&#36807;&#19982;SA Leader&#65288;&#40644;&#20581;&#65289;&#21644;Consulting&#65288;&#20161;&#26480;&#65289;&#35775;&#35848;&#65292;&#26803;&#29702;AS-IS&#21806;&#21069;&#27969;&#31243;</li>
-          <li>&#20132;&#20184;&#32467;&#26500;&#21270;&#21806;&#21069;&#36816;&#33829;&#27169;&#22411;PPT&#65306;5&#38454;&#27573;&#27969;&#31243;&#12289;&#22242;&#38431;&#24037;&#20316;&#27969;&#12289;&#26816;&#26597;&#28857;&#12289;&#20132;&#20184;&#29289;&#12289;&#27835;&#29702;&#35758;&#39064;</li>
-          <li>&#35782;&#21035;3&#20010;&#38656;&#35201;&#31649;&#29702;&#23618;&#35752;&#35770;&#30340;&#25112;&#30053;&#24615;&#35758;&#39064;</li>
+      <div class="result-card">
+        <div class="header">
+          <div class="icon">📋</div>
+          <div><div class="card-title">售前运营模型交付</div><div class="card-sub">管理层交付物 · 执行级框架文档</div></div>
+        </div>
+        <ul>
+          <li>通过与SA负责人（黄健）及Consulting Lead（仁杰）的结构化访谈，完成售前流程现状映射</li>
+          <li>产出售前运营模型PPT：5阶段流水线、跨职能工作流（BD/SA/Consulting）、质量检查点、交付物矩阵、治理结构</li>
+          <li>识别3个需要管理层决策的战略对齐议题</li>
         </ul>
       </div>
-      <div class="rc">
-        <div class="rch"><div class="rci">&#129309;</div><div><div class="rct">&#39318;&#20010;&#29420;&#31435;&#39033;&#30446;</div><div class="rcs">&#20013;&#30000;&#39033;&#30446; &middot; SA&#22242;&#38431;&#30452;&#25509;&#20998;&#37197;</div></div></div>
-        <ul class="bl">
-          <li>SA&#22242;&#38431;workload&#39281;&#21644;&#8594;&#30452;&#25509;&#20998;&#37197;&#20013;&#30000;&#39033;&#30446;&#20316;&#20026;&#31532;&#19968;&#20010;&#29420;&#31435;&#21806;&#21069;&#25903;&#25345;</li>
-          <li>&#24050;&#19982;&#23458;&#25143;&#24314;&#31435;&#21021;&#27493;&#32852;&#31995;&#8212;&#8212;&#38656;&#27714;&#27491;&#22312;&#26126;&#30830;&#20013;&#65288;SpaceSight + &#25240;&#26087;&#26426;&#22120;&#65289;</li>
-          <li>4&#20010;&#24037;&#20316;&#26085;&#20869;&#20174;&#8220;shadowing&#8221;&#36716;&#21464;&#20026;&#8220;&#29420;&#31435;owner&#8221;</li>
+      <div class="result-card">
+        <div class="header">
+          <div class="icon">🤝</div>
+          <div><div class="card-title">首个独立项目承接</div><div class="card-sub">中田项目 · SA团队直接委派</div></div>
+        </div>
+        <ul>
+          <li>SA团队产能饱和——主动承接中田项目作为首个独立售前项目</li>
+          <li>已建立客户初步联系——需求处于明确阶段（SpaceSight + 折旧设备部署场景）</li>
+          <li>入职4个工作日内完成"观察者"到"独立负责人"的角色转换</li>
         </ul>
       </div>
-      <div class="rc">
-        <div class="rch"><div class="rci">&#127758;</div><div><div class="rct">&#22810;&#39033;&#30446;&#24182;&#34892;&#25512;&#36827;</div><div class="rcs">7&#20010;&#27963;&#36291;&#39033;&#30446; &middot; &#20013;&#22269;+APAC</div></div></div>
-        <ul class="bl">
-          <li>&#26032;&#33635;&#35760;&#65306;&#23436;&#25972;&#29702;&#35299;&#21806;&#21069;&#19978;&#19979;&#25991;&#65292;&#19982;Consulting&#26803;&#29702;way of working</li>
-          <li>&#27491;&#39033;&#65306;&#21512;&#20316;&#26041;&#20250;&#35758;&#30830;&#35748;POC&#33539;&#22260;&#12289;&#22330;&#26223;&#21644;&#37096;&#32626;&#26041;&#24335;</li>
-          <li>&#26085;&#20135;-&#20013;&#32724;&#37030;&#27888;&#65306;&#21152;&#20837;&#28192;&#36947;&#39033;&#30446;&#32676;shadowing</li>
-          <li>APAC&#65306;&#33521;&#25991;demo&#33050;&#26412;&#24050;&#20934;&#22791;&#65292;&#38543;&#26102;&#21487;&#25903;&#25345;</li>
+      <div class="result-card">
+        <div class="header">
+          <div class="icon">🌍</div>
+          <div><div class="card-title">多项目组合并行推进</div><div class="card-sub">7个活跃项目 · 覆盖中国及APAC市场</div></div>
+        </div>
+        <ul>
+          <li>新荣记：完成售前全貌映射，与Consulting团队建立协作规范</li>
+          <li>正项：合作方会议确认POC范围、目标场景及部署架构</li>
+          <li>日产-中翔邦泰：进入渠道项目群，学习合作伙伴交易模式</li>
+          <li>APAC：英文Demo脚本已完成，随时可支持客户面对面演示</li>
         </ul>
       </div>
     </div>
-    <div class="mx" style="margin-top:20px;padding:16px 20px;background:#fff;border:1px solid var(--g200);border-radius:12px">
-      <div><div class="mxn">1</div><div class="mxl">CEO&#20132;&#20184;&#29289;</div></div>
-      <div><div class="mxn">7</div><div class="mxl">&#27963;&#36291;&#39033;&#30446;</div></div>
-      <div><div class="mxn">4&#22825;</div><div class="mxl">&#20174;&#35266;&#23519;&#21040;&#29420;&#31435;</div></div>
-      <div><div class="mxn">1</div><div class="mxl">&#34892;&#19994;&#23792;&#20250;</div></div>
+    <div class="kpi-row">
+      <div class="kpi-item"><div class="num">1</div><div class="label">管理层交付物</div></div>
+      <div class="kpi-item"><div class="num">7</div><div class="label">活跃项目数</div></div>
+      <div class="kpi-item"><div class="num">4天</div><div class="label">从观察到独立负责</div></div>
+      <div class="kpi-item"><div class="num">1</div><div class="label">行业峰会参与</div></div>
     </div>
   </section>
 
+  <!-- 第3节：AI原生工作指数 -->
   <section class="sec">
-    <div class="sk"><div class="sn">3</div><span class="slbl">AI-NATIVE &#24037;&#20316;&#25351;&#25968;</span></div>
-    <h2 class="stitle">&#26412;&#21608;AI&#21033;&#29992;&#24773;&#20917;</h2>
+    <div class="sec-header"><div class="sec-num">3</div><span class="sec-label">AI原生工作指数</span></div>
+    <h2 class="sec-title">本周AI应用详情</h2>
     <div class="ai-grid">
       <div class="ai-card">
-        <span class="ai-badge ai-full">100% AI&#29420;&#31435;&#23436;&#25104;</span>
-        <div class="ai-title">Term Depository v2.0</div>
-        <div class="ai-desc">SA&#30693;&#35782;&#24211;&#24037;&#20855;&#8212;&#8212;&#36890;&#36807;Alivia vibe coding&#23436;&#20840;&#29983;&#25104;&#12290;&#20135;&#21697;&#26415;&#35821;&#12289;&#25216;&#26415;&#27010;&#24565;&#12289;&#21806;&#21069;&#35789;&#27719;&#20132;&#20114;&#24335;&#35789;&#20856;&#12290;</div>
+        <span class="ai-badge ai-full">100% AI独立生成</span>
+        <div class="title">Term Depository v2.0</div>
+        <div class="desc">SA知识库工具——通过Alivia全栈生成（Vibe Coding）。涵盖产品术语、技术概念、售前词汇的交互式查询工具，零人工编码。</div>
       </div>
       <div class="ai-card">
-        <span class="ai-badge ai-full">100% AI&#29420;&#31435;&#23436;&#25104;</span>
-        <div class="ai-title">&#21608;&#25253;&#24037;&#20316;&#21488;&#32593;&#31449;</div>
-        <div class="ai-desc">&#23436;&#25972;&#24037;&#20316;&#21488;&#8212;&#8212;11&#20010;HTML/CSS/JS&#25991;&#20214;&#12289;&#23494;&#30721;&#20445;&#25252;&#12289;&#21452;&#35821;&#12289;GitHub Pages&#37096;&#32626;&#12290;&#38646;&#25163;&#21160;&#32534;&#30721;&#12290;</div>
+        <span class="ai-badge ai-full">100% AI独立生成</span>
+        <div class="title">个人工作台站点</div>
+        <div class="desc">完整Web平台——11个HTML/CSS/JS文件、密码保护、中英双语、GitHub Pages自动部署。从设计到上线全程AI完成。</div>
       </div>
       <div class="ai-card">
-        <span class="ai-badge ai-full">100% AI&#29420;&#31435;&#23436;&#25104;</span>
-        <div class="ai-title">APAC Demo&#33050;&#26412;</div>
-        <div class="ai-desc">&#33521;&#25991;&#20135;&#21697;&#20171;&#32461;&#21644;demo&#28436;&#31034;&#33050;&#26412;&#65292;AI&#29983;&#25104;&#65292;&#29992;&#20110;APAC&#23458;&#25143;&#25903;&#25345;&#12290;</div>
+        <span class="ai-badge ai-full">100% AI独立生成</span>
+        <div class="title">APAC Demo演示脚本（英文）</div>
+        <div class="desc">面向客户的英文产品介绍及现场演示引导脚本，AI一次性生成，可直接用于APAC客户交付。</div>
       </div>
       <div class="ai-card">
-        <span class="ai-badge ai-cowork">&#20154;+AI&#21327;&#20316;</span>
-        <div class="ai-title">&#21806;&#21069;&#27969;&#31243;&#26803;&#29702;PPT</div>
-        <div class="ai-desc">AI&#29420;&#31435;&#23581;&#35797;&#22833;&#36133;&#65288;Alivia&#21644;GPT&#22343;&#19981;&#34892;&#65289;&#12290;&#26368;&#32456;&#29256;&#26412;&#65306;&#20154;&#31867;&#25552;&#20379;&#32467;&#26500;/&#36923;&#36753;+AI&#36127;&#36131;&#36215;&#33609;/&#25490;&#29256;&#12290;</div>
+        <span class="ai-badge ai-cowork">人机协作</span>
+        <div class="title">售前流程梳理PPT</div>
+        <div class="desc">AI独立尝试失败（Alivia及GPT-4均未达标）。最终采用"人类构建框架逻辑 + AI负责内容起草与视觉排版"的协作模式完成。</div>
       </div>
       <div class="ai-card">
-        <span class="ai-badge ai-augment">AI&#36741;&#21161;&#22686;&#24378;</span>
-        <div class="ai-title">&#20135;&#21697;&#30740;&#31350;&#19982;&#32508;&#21512;</div>
-        <div class="ai-desc">&#36890;&#36807;Alivia&#24182;&#34892;&#26816;&#32034;Harbor&#20869;&#37096;&#36164;&#26009;+&#22806;&#37096;&#20449;&#24687;&#65292;&#30456;&#27604;&#32431;&#25163;&#21160;&#33410;&#30465;&#32422;60%&#26102;&#38388;&#12290;</div>
+        <span class="ai-badge ai-augment">AI辅助增强</span>
+        <div class="title">产品研究与信息综合</div>
+        <div class="desc">通过Alivia并行检索Harbor内部资料与外部信息源，相比纯手动研究流程节省约60%时间。</div>
       </div>
       <div class="ai-card">
-        <span class="ai-badge ai-augment">AI&#36741;&#21161;&#22686;&#24378;</span>
-        <div class="ai-title">&#21608;&#25253;&#25776;&#20889;</div>
-        <div class="ai-desc">&#25552;&#20379;&#21407;&#22987;&#20449;&#24687;&#8594;AI&#32467;&#26500;&#21270;&#25972;&#29702;&#20026;&#21452;&#35821;&#25253;&#21578;+&#21697;&#29260;HTML&#27169;&#26495;&#12290;</div>
-      </div>
-    </div>
-    <div class="ai-summary">
-      <div><div class="ai-pct">~70%</div></div>
-      <div class="ai-pct-lbl">
-        <strong>&#26412;&#21608;&#24037;&#20316;&#20135;&#20986;&#20013;AI&#21442;&#19982;&#27604;&#20363;&#20272;&#31639;</strong><br>
-        3&#20010;&#20132;&#20184;&#29289;&#23436;&#20840;&#30001;AI&#29983;&#25104; &middot; 1&#20010;&#20154;&#26426;&#21327;&#20316; &middot; 2&#20010;AI&#36741;&#21161;&#30740;&#31350;/&#32508;&#21512;&#20219;&#21153;<br>
-        &#26680;&#24515;&#21457;&#29616;&#65306;&#22797;&#26434;&#39046;&#22495;&#25991;&#26723;&#65288;&#21806;&#21069;&#27969;&#31243;&#65289;&#20173;&#38656;&#20154;&#31867;&#21028;&#26029;&#26469;&#25226;&#25511;&#32467;&#26500;&#65307;&#24037;&#20855;/&#32593;&#31449;/&#33050;&#26412;&#31561;&#21487;&#23436;&#20840;&#22996;&#27966;&#32473;AI&#12290;
+        <span class="ai-badge ai-augment">AI辅助增强</span>
+        <div class="title">周报撰写与呈现</div>
+        <div class="desc">输入原始工作状态信息，AI结构化整理为管理层级别双语报告并渲染为品牌化HTML页面。</div>
       </div>
     </div>
   </section>
 
+  <!-- 第4节：交付物清单 -->
   <section class="sec">
-    <div class="sk"><div class="sn">4</div><span class="slbl">&#20132;&#20184;&#29289;&#28165;&#21333;</span></div>
-    <h2 class="stitle">&#26412;&#21608;&#20135;&#20986;</h2>
+    <div class="sec-header"><div class="sec-num">4</div><span class="sec-label">交付物清单</span></div>
+    <h2 class="sec-title">本周产出物</h2>
     <div class="del-grid">
       <div class="del-card">
-        <div class="del-icon">&#128209;</div>
+        <div class="del-icon">📑</div>
         <div>
-          <div class="del-title">&#21806;&#21069;&#36816;&#33829;&#27169;&#22411;PPT</div>
-          <div class="del-desc">5&#38454;&#27573;&#26694;&#26550;&#12289;&#22242;&#38431;&#24037;&#20316;&#27969;&#65288;BD/SA/Others&#65289;&#12289;&#20132;&#20184;&#29289;&#30697;&#38453;&#12289;&#26816;&#26597;&#28857;&#12289;3&#20010;&#27835;&#29702;&#35758;&#39064;&#12290;</div>
-          <div class="del-status" style="color:var(--green)">&#10004; &#24050;&#20132;&#20184;CEO/CTO</div>
+          <div class="del-title">售前运营模型PPT</div>
+          <div class="del-desc">5阶段框架、跨职能工作流（BD/SA/Consulting）、交付物矩阵、质量检查点、3项治理议题。</div>
+          <div class="del-status" style="color:var(--green)">✓ 已交付CEO/CTO</div>
         </div>
       </div>
       <div class="del-card">
-        <div class="del-icon">&#127760;</div>
+        <div class="del-icon">🌐</div>
         <div>
-          <div class="del-title">&#20010;&#20154;&#24037;&#20316;&#21488;&#32593;&#31449;</div>
-          <div class="del-desc">&#23494;&#30721;&#20445;&#25252;&#12289;&#21452;&#35821;&#12289;&#21608;&#25253;&#23384;&#26723;&#12289;&#39033;&#30446;&#36319;&#36394;&#12289;&#25104;&#23601;&#22681;&#12290;</div>
-          <div class="del-status" style="color:var(--green)">&#10004; &#24050;&#19978;&#32447;</div>
+          <div class="del-title">个人工作台平台</div>
+          <div class="del-desc">密码保护、中英双语、响应式布局。周报存档、项目追踪、成就展示。GitHub Pages托管。</div>
+          <div class="del-status" style="color:var(--green)">✓ 已上线运行</div>
         </div>
       </div>
       <div class="del-card">
-        <div class="del-icon">&#128218;</div>
+        <div class="del-icon">📚</div>
         <div>
           <div class="del-title">Term Depository v2.0</div>
-          <div class="del-desc">SA&#30693;&#35782;&#24211;&#24037;&#20855;&#21319;&#32423;&#29256;&#12290;&#20135;&#21697;&#26415;&#35821;&#12289;&#25216;&#26415;&#27010;&#24565;&#12289;&#21806;&#21069;&#35789;&#27719;&#12290;&#22242;&#38431;&#20351;&#29992;MVP&#12290;</div>
-          <div class="del-status" style="color:var(--green)">&#10004; &#24050;&#19978;&#32447;</div>
+          <div class="del-desc">SA知识库工具升级版。产品术语、技术概念、售前词汇。团队级MVP已就绪。</div>
+          <div class="del-status" style="color:var(--green)">✓ 已上线</div>
         </div>
       </div>
       <div class="del-card">
-        <div class="del-icon">&#127908;</div>
+        <div class="del-icon">🎤</div>
         <div>
-          <div class="del-title">APAC Demo&#33050;&#26412;&#65288;&#33521;&#25991;&#65289;</div>
-          <div class="del-desc">&#33521;&#25991;&#20135;&#21697;&#20171;&#32461;+demo&#28436;&#31034;&#33050;&#26412;&#65292;&#38543;&#26102;&#21487;&#25903;&#25345;APAC&#23458;&#25143;&#12290;</div>
-          <div class="del-status" style="color:var(--blue)">&#9679; &#24050;&#23601;&#32490;</div>
+          <div class="del-title">APAC Demo脚本（英文）</div>
+          <div class="del-desc">英文产品介绍 + 现场Demo引导脚本。可即时部署用于APAC客户交付。</div>
+          <div class="del-status" style="color:var(--blue)">● 已就绪待部署</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- 第5节：项目追踪 -->
   <section class="sec">
-    <div class="sk"><div class="sn">5</div><span class="slbl">&#39033;&#30446;&#36319;&#36394;</span></div>
-    <h2 class="stitle">&#27963;&#36291;&#39033;&#30446;&#29366;&#24577;</h2>
-    <div class="rc full">
-      <table class="pt">
-        <thead><tr><th>&#39033;&#30446;</th><th>&#20135;&#21697;</th><th>&#29366;&#24577;</th><th>&#26412;&#21608;&#36827;&#23637;</th></tr></thead>
-        <tbody>
-          <tr><td><div class="pn">&#20013;&#30000;</div><div class="ps">&#39318;&#20010;&#29420;&#31435;SA&#39033;&#30446;</div></td><td>SpaceSight</td><td><span class="tag tb">&#29420;&#31435;&#36127;&#36131;</span></td><td>&#20174;SA&#22242;&#38431;&#25509;&#25163;&#12290;&#24050;&#19982;&#23458;&#25143;&#21021;&#27493;&#32852;&#31995;&#12290;&#38656;&#27714;&#27491;&#22312;&#26126;&#30830;&#12290;</td></tr>
-          <tr><td><div class="pn">&#26032;&#33635;&#35760;</div><div class="ps">&#21806;&#21069;Shadowing</div></td><td>SpaceSight</td><td><span class="tag tb">&#27963;&#36291;</span></td><td>&#19982;Consulting&#26803;&#29702;&#23436;&#25972;&#19978;&#19979;&#25991;&#12290;&#23458;&#25143;&#20250;&#35758;&#21462;&#28040;&#20294;&#20934;&#22791;&#24037;&#20316;&#24050;&#23436;&#25104;&#12290;</td></tr>
-          <tr><td><div class="pn">&#27491;&#39033;</div><div class="ps">&#28192;&#36947;&#21512;&#20316;&#26041;</div></td><td>SpaceSight</td><td><span class="tag tb">&#27963;&#36291;</span></td><td>&#21608;&#19977;&#21512;&#20316;&#26041;&#20250;&#35758;&#8212;&#8212;&#30830;&#35748;POC&#33539;&#22260;&#12289;&#22330;&#26223;&#12289;&#37096;&#32626;&#26041;&#24335;&#12290;</td></tr>
-          <tr><td><div class="pn">&#26085;&#20135;-&#20013;&#32724;&#37030;&#27888;</div><div class="ps">&#24930;&#38378;&#24215;&#23458;&#27969;</div></td><td>SpaceSight</td><td><span class="tag ta">Shadowing</span></td><td>&#26412;&#21608;&#21152;&#20837;&#39033;&#30446;&#32676;&#12290;&#23398;&#20064;&#28192;&#36947;&#39033;&#30446;&#27169;&#24335;&#12290;</td></tr>
-          <tr><td><div class="pn">&#28023;&#20449;</div><div class="ps">&#28192;&#36947;AI&#24033;&#26816;</div></td><td>SpaceSight</td><td><span class="tag tgr">&#30417;&#25511;</span></td><td>&#26412;&#21608;&#26080;&#26032;&#21160;&#24577;&#12290;&#32487;&#32493;&#30417;&#25511;&#32676;&#20869;&#36827;&#23637;&#12290;</td></tr>
-          <tr><td><div class="pn">&#21326;&#20026;&#38081;&#36335;</div><div class="ps">&#26089;&#26399;&#25506;&#32034;</div></td><td>TBD</td><td><span class="tag ta">Discovery</span></td><td>&#20173;&#22312;&#26089;&#26399;&#25506;&#32034;&#38454;&#27573;&#12290;&#26080;&#26032;&#36827;&#23637;&#12290;</td></tr>
-          <tr><td><div class="pn">APAC&#65288;&#22810;&#20010;&#65289;</div><div class="ps">&#33521;&#25991;demo&#25903;&#25345;</div></td><td>Multiple</td><td><span class="tag tp">&#20934;&#22791;&#20013;</span></td><td>Demo&#33050;&#26412;&#24050;&#23436;&#25104;&#12290;&#19979;&#21608;&#21487;&#33021;&#38656;&#35201;&#33521;&#25991;&#20135;&#21697;&#20171;&#32461;&#25903;&#25345;&#12290;</td></tr>
-        </tbody>
-      </table>
+    <div class="sec-header"><div class="sec-num">5</div><span class="sec-label">项目追踪</span></div>
+    <h2 class="sec-title">活跃项目组合状态</h2>
+    <div class="phase-def">
+      <strong>项目状态定义：</strong><br>
+      <strong>独立负责</strong> = 独立主导客户接触与方案交付，对项目结果负责<br>
+      <strong>活跃参与</strong> = 积极参与售前活动，承担部分交付责任<br>
+      <strong>跟随观察</strong> = 以观察学习为主，建立项目上下文理解<br>
+      <strong>持续监控</strong> = 通过沟通群追踪进展，暂无主动介入<br>
+      <strong>早期探索</strong> = 机会初期阶段，需求与产品匹配度仍在评估<br>
+      <strong>准备就绪</strong> = 交付物已完成，等待业务触发信号
+    </div>
+    <table class="proj-table" style="margin-top:16px;">
+      <thead><tr><th>项目</th><th>产品</th><th>状态</th><th>本周进展</th></tr></thead>
+      <tbody>
+        <tr><td><div class="pn">中田</div><div class="ps">首个独立SA项目</div></td><td>SpaceSight</td><td><span class="tag tag-blue">独立负责</span></td><td>从SA团队正式承接。已建立客户初步联系，需求范围明确中。</td></tr>
+        <tr><td><div class="pn">新荣记</div><div class="ps">售前参与</div></td><td>SpaceSight</td><td><span class="tag tag-blue">活跃参与</span></td><td>与Consulting完成全貌梳理，协作规范已文档化。客户会议取消，准备工作已就绪。</td></tr>
+        <tr><td><div class="pn">正项</div><div class="ps">渠道合作方POC</div></td><td>SpaceSight</td><td><span class="tag tag-blue">活跃参与</span></td><td>周三合作方会议——确认POC范围、目标场景与部署方案。</td></tr>
+        <tr><td><div class="pn">日产-中翔邦泰</div><div class="ps">渠道：慢闪店客流</div></td><td>SpaceSight</td><td><span class="tag tag-amber">跟随观察</span></td><td>本周加入项目群。学习渠道项目运作模式与合作伙伴动态。</td></tr>
+        <tr><td><div class="pn">海信</div><div class="ps">渠道AI巡检</div></td><td>SpaceSight</td><td><span class="tag tag-gray">持续监控</span></td><td>本周无新动态。继续追踪沟通群内进展。</td></tr>
+        <tr><td><div class="pn">华为铁路</div><div class="ps">早期探索</div></td><td>待定</td><td><span class="tag tag-gray">早期探索</span></td><td>仍处于早期阶段。需求与产品匹配度评估中。</td></tr>
+        <tr><td><div class="pn">APAC（多个）</div><div class="ps">英文Demo支持</div></td><td>多产品</td><td><span class="tag tag-amber">准备就绪</span></td><td>Demo脚本已完成。等待业务触发后即可部署英文产品演示支持。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 第6节：重点事项 -->
+  <section class="sec">
+    <div class="sec-header"><div class="sec-num">6</div><span class="sec-label">重点事项</span></div>
+    <h2 class="sec-title">亮点、风险与观察</h2>
+    <div class="callout-grid">
+      <div class="callout good">
+        <div class="type">亮点</div>
+        <div class="callout-title">4天内完成角色跃迁</div>
+        <div class="callout-text">从纯观察学习模式转变为独立负责中田项目。SA团队产能瓶颈创造了机会，同时验证了入职第一阶段的知识积累已足够支撑独立执行。</div>
+      </div>
+      <div class="callout good">
+        <div class="type">亮点</div>
+        <div class="callout-title">管理层交付物按时完成</div>
+        <div class="callout-text">售前运营模型于周五按承诺交付CEO/CTO。人机协作模式对结构化领域文档的生产效率显著——人类把控架构，AI加速执行。</div>
+      </div>
+      <div class="callout warn">
+        <div class="type">关注项</div>
+        <div class="callout-title">Echo硬件设备仍不可用</div>
+        <div class="callout-text">Bug已提交产品工程团队，暂无修复时间表。需协调替换设备以恢复产品Demo能力。当前不阻塞售前工作，但限制现场演示准备度。</div>
+      </div>
+      <div class="callout info">
+        <div class="type">观察洞察</div>
+        <div class="callout-title">AI能力边界：复杂领域架构</div>
+        <div class="callout-text">Alivia与GPT-4均无法独立完成售前流程PPT。核心发现：结构化领域思维需要人类判断力把控；AI在框架确定后的内容生成和视觉呈现上表现优异。</div>
+      </div>
     </div>
   </section>
 
+  <!-- 第7节：下周计划 -->
   <section class="sec">
-    <div class="sk"><div class="sn">6</div><span class="slbl">&#37325;&#28857;&#20107;&#39033;</span></div>
-    <h2 class="stitle">&#39118;&#38505;&#12289;&#20142;&#28857;&#19982;&#35266;&#23519;</h2>
-    <div class="cg">
-      <div class="co good">
-        <div class="coty">&#10004; &#20142;&#28857;</div>
-        <div class="cott">4&#22825;&#20869;&#20174;&#35266;&#23519;&#21040;&#29420;&#31435;&#36127;&#36131;</div>
-        <div class="cotx">&#20174;&#32431;shadowing&#36716;&#21464;&#20026;&#29420;&#31435;&#36127;&#36131;&#20013;&#30000;&#39033;&#30446;&#12290;SA&#22242;&#38431;workload&#39281;&#21644;&#21019;&#36896;&#20102;&#26426;&#20250;&#65292;&#20063;&#35777;&#26126;onboarding&#36827;&#24230;&#36275;&#22815;&#24555;&#12290;</div>
-      </div>
-      <div class="co good">
-        <div class="coty">&#10004; &#20142;&#28857;</div>
-        <div class="cott">CEO&#20132;&#20184;&#29289;&#25353;&#26102;&#23436;&#25104;</div>
-        <div class="cotx">&#21806;&#21069;&#27969;&#31243;&#26694;&#26550;&#21608;&#20116;&#25353;&#26102;&#20132;&#20184;&#32473;CEO/CTO&#12290;&#20154;+AI&#21327;&#20316;&#27169;&#24335;&#35777;&#26126;&#23545;&#32467;&#26500;&#21270;&#39046;&#22495;&#25991;&#26723;&#26377;&#25928;&#12290;</div>
-      </div>
-      <div class="co warn">
-        <div class="coty">&#9888; &#20851;&#27880;</div>
-        <div class="cott">Echo&#35774;&#22791;&#20173;&#26080;&#27861;&#20351;&#29992;</div>
-        <div class="cotx">Bug&#24050;&#25552;&#20132;&#65292;&#20135;&#21697;&#22242;&#38431;&#26242;&#26080;&#35299;&#20915;&#26041;&#26696;&#12290;&#38656;&#35201;&#26367;&#25442;&#35774;&#22791;&#32487;&#32493;&#27979;&#35797;&#12290;&#19981;&#24433;&#21709;&#21806;&#21069;&#24037;&#20316;&#20294;&#38480;&#21046;&#20135;&#21697;demo&#33021;&#21147;&#12290;</div>
-      </div>
-      <div class="co info">
-        <div class="coty">&#8505; &#35266;&#23519;</div>
-        <div class="cott">AI&#23616;&#38480;&#24615;&#65306;&#22797;&#26434;PPT</div>
-        <div class="cotx">Alivia&#21644;GPT&#22343;&#26080;&#27861;&#29420;&#31435;&#23436;&#25104;&#21806;&#21069;&#27969;&#31243;PPT&#12290;&#25945;&#35757;&#65306;&#32467;&#26500;&#21270;&#39046;&#22495;&#24605;&#32771;&#38656;&#35201;&#20154;&#31867;&#21028;&#26029;&#65307;AI&#25797;&#38271;&#22312;&#32467;&#26500;&#30830;&#23450;&#21518;&#30340;&#36215;&#33609;&#21644;&#25490;&#29256;&#12290;</div>
-      </div>
+    <div class="sec-header"><div class="sec-num">7</div><span class="sec-label">下周计划</span></div>
+    <h2 class="sec-title">第三周重点 · 6月23日–27日</h2>
+    <div class="phase-def" style="margin-bottom:16px;">
+      <strong>进入第三阶段——独立执行期：</strong>第三周标志着从学习融入向自主交付的正式转变。工作重心从知识积累转向可量化的产出与价值创造。
     </div>
-  </section>
-
-  <section class="sec">
-    <div class="sk"><div class="sn">7</div><span class="slbl">&#19979;&#21608;&#35745;&#21010;</span></div>
-    <h2 class="stitle">&#31532;&#19977;&#21608;&#37325;&#28857; &middot; 6&#26376;23-27&#26085;</h2>
-    <div class="nsg">
-      <div class="nsc">
-        <div class="nsn">&#20248;&#20808;&#32423; 1</div>
-        <div class="nst">&#20013;&#30000;&#39033;&#30446;&#25512;&#36827;</div>
-        <div class="nsx">&#26126;&#30830;&#23458;&#25143;&#38656;&#27714;&#12290;&#20934;&#22791;&#21021;&#27493;&#26041;&#26696;&#12290;&#31532;&#19968;&#27425;&#29420;&#31435;SA&#20132;&#20184;&#12290;</div>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <div class="plan-num">1</div>
+        <div><div class="plan-title">中田项目推进交付</div><div class="plan-desc">明确客户需求，制定初步解决方案，完成首次独立SA交付。成功标准：客户认可的方案方向或技术建议。</div></div>
       </div>
-      <div class="nsc">
-        <div class="nsn">&#20248;&#20808;&#32423; 2</div>
-        <div class="nst">SA&#27969;&#31243;&#35775;&#35848;+&#36845;&#20195;</div>
-        <div class="nsx">&#32487;&#32493;&#35775;&#35848;&#22242;&#38431;&#25104;&#21592;&#12290;&#26681;&#25454;CEO/CTO&#21453;&#39304;&#36845;&#20195;&#21806;&#21069;&#27969;&#31243;&#25991;&#26723;&#12290;</div>
+      <div class="plan-card">
+        <div class="plan-num">2</div>
+        <div><div class="plan-title">售前框架迭代优化</div><div class="plan-desc">继续跨团队利益相关方访谈。融合CEO/CTO反馈迭代运营模型v2，目标产出可执行的治理手册。</div></div>
       </div>
-      <div class="nsc">
-        <div class="nsn">&#20248;&#20808;&#32423; 3</div>
-        <div class="nst">APAC&#25903;&#25345;+Demo&#23601;&#32490;</div>
-        <div class="nsx">&#22914;&#35302;&#21457;&#65306;&#20026;APAC&#23458;&#25143;&#25552;&#20379;&#33521;&#25991;&#20135;&#21697;&#20171;&#32461;/demo&#12290;&#33050;&#26412;&#24050;&#20934;&#22791;&#12290;</div>
+      <div class="plan-card">
+        <div class="plan-num">3</div>
+        <div><div class="plan-title">APAC演示支持就绪</div><div class="plan-desc">如业务触发：为APAC客户提供英文产品介绍及现场Demo。脚本已完成，待完成排练。视BD管线进展而定。</div></div>
       </div>
     </div>
   </section>
 
 </main>
-
-<footer class="ftr">
-  <span>Whale &middot; &#20869;&#37096;&#20351;&#29992; &middot; <strong>&#35745;&#29614;&#25935;</strong> &middot; &#31532;&#20108;&#21608;&#21608;&#25253; &middot; 2026&#24180;6&#26376;16-20&#26085;</span>
-  <span>&#30001; <strong>Alivia</strong> &#29983;&#25104; &middot; 2026&#24180;6&#26376;20&#26085;</span>
-</footer>
 
 </body>
 </html>
