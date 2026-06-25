@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Weekly Reports - Whale Workspace</title>
 <link rel="stylesheet" href="assets/style.css">
+<style>
+.report-filter { display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap; }
+.filter-btn { font-size:12px; font-weight:600; padding:6px 14px; border-radius:20px; border:1px solid var(--g200); background:#fff; color:var(--g500); cursor:pointer; transition:all .2s; }
+.filter-btn:hover, .filter-btn.active { background:var(--navy); color:#fff; border-color:var(--navy); }
+.report-sort { font-size:12px; color:var(--g400); margin-bottom:16px; }
+</style>
 </head>
 <body>
 <nav class="topnav">
@@ -19,49 +25,59 @@
   </div>
   <div class="topnav-right">
     <button class="lang-btn" data-lang="en">EN</button>
-    <button class="lang-btn" data-lang="zh">&#x4E2D;</button>
+    <button class="lang-btn" data-lang="zh">中</button>
     <span class="nav-name">Weimin JI</span>
   </div>
 </nav>
 <div class="page-container">
   <div class="page-hero">
-    <h1 data-en="Weekly Reports" data-zh="&#x5468;&#x62A5;&#x5F52;&#x6863;">Weekly Reports</h1>
-    <p data-en="Archive of all weekly status reports. Click to view EN or ZH version." data-zh="&#x6240;&#x6709;&#x5468;&#x62A5;&#x5F52;&#x6863;&#x3002;&#x70B9;&#x51FB;&#x67E5;&#x770B;&#x4E2D;&#x6587;&#x6216;EN&#x7248;&#x672C;&#x3002;">Archive of all weekly status reports. Click to view EN or ZH version.</p>
+    <h1 data-en="Weekly Reports" data-zh="周报归档">Weekly Reports</h1>
+    <p data-en="All weekly reports, sorted by most recent. Click to view EN or ZH version." data-zh="所有周报，按最新排序。点击查看中文或英文版本。">All weekly reports, sorted by most recent. Click to view EN or ZH version.</p>
   </div>
 
+  <!-- Filter & Sort -->
+  <div class="report-filter">
+    <button class="filter-btn active" data-en="All" data-zh="全部">All</button>
+    <button class="filter-btn" data-en="Current Week" data-zh="本周">Current Week</button>
+    <button class="filter-btn" data-en="Archived" data-zh="已归档">Archived</button>
+  </div>
+  <div class="report-sort" data-en="↓ Sorted by newest first · 2 reports total" data-zh="↓ 按最新排序 · 共2份报告">↓ Sorted by newest first · 2 reports total</div>
+
+  <!-- Week 2 (LATEST) -->
   <div class="report-card" style="margin-bottom:16px">
     <div class="report-card-top">
-      <span class="report-card-status status-current">Current</span>
+      <span class="report-card-status status-current" data-en="Latest" data-zh="最新">Latest</span>
       <div class="report-card-week">Week 2</div>
-      <div class="report-card-title">Jun 16 &#x2013; 20, 2026 (Mon&#x2013;Fri)</div>
-      <div class="report-card-date">Product Deep Dive &middot; SA Process Discovery &middot; Client Engagement</div>
+      <div class="report-card-title" data-en="Jun 16 – 20, 2026 (Mon–Fri)" data-zh="2026年6月16日 – 20日（周一至周五）">Jun 16 – 20, 2026 (Mon–Fri)</div>
+      <div class="report-card-date" data-en="Product Deep Dive · SA Process Framework · First Project Ownership · AI-Native Dashboard" data-zh="产品深入 · 售前流程框架 · 首个独立项目 · AI原生仪表盘">Product Deep Dive · SA Process Framework · First Project Ownership · AI-Native Dashboard</div>
     </div>
     <div class="report-card-body">
-      <div class="report-card-summary">SpaceSight &amp; Echo product demo with Ethan. AS-IS SA process review with HuangJian. Xin Rong Ji client meeting &amp; consulting team review. Zhongtian SA brief received. SA workflow design deliverable kicked off.</div>
+      <div class="report-card-summary" data-en="Delivered presales operating model to CEO/CTO. Took over 中田 project independently in 4 days. 7 active projects (China + APAC). ~70% AI involvement. 3 deliverables fully AI-generated." data-zh="向CEO/CTO交付售前运营模型。4天内独立承接中田项目。7个活跃项目（中国+APAC）。AI参与度~70%。3项交付物完全AI生成。">Delivered presales operating model to CEO/CTO. Took over 中田 project independently in 4 days. 7 active projects (China + APAC). ~70% AI involvement. 3 deliverables fully AI-generated.</div>
       <div class="report-card-links">
-        <a href="reports/week2/en.html" class="report-link">EN &#x2192;</a>
-        <a href="reports/week2/zh.html" class="report-link">&#x4E2D;&#x6587; &#x2192;</a>
+        <a href="reports/week2/en.html" class="report-link">EN →</a>
+        <a href="reports/week2/zh.html" class="report-link">中文 →</a>
       </div>
     </div>
   </div>
 
+  <!-- Week 1 -->
   <div class="report-card" style="margin-bottom:16px">
     <div class="report-card-top">
-      <span class="report-card-status status-done">Done</span>
+      <span class="report-card-status status-done" data-en="Archived" data-zh="已归档">Archived</span>
       <div class="report-card-week">Week 1</div>
-      <div class="report-card-title">Jun 11 &#x2013; 18, 2026</div>
-      <div class="report-card-date">Company Overview &middot; Product Portfolio &middot; Onboarding Foundation</div>
+      <div class="report-card-title" data-en="Jun 10 – 13, 2026 (Tue–Fri)" data-zh="2026年6月10日 – 13日（周二至周五）">Jun 10 – 13, 2026 (Tue–Fri)</div>
+      <div class="report-card-date" data-en="Company Overview · Product Portfolio · Onboarding Foundation" data-zh="公司概览 · 产品组合 · 入职基础">Company Overview · Product Portfolio · Onboarding Foundation</div>
     </div>
     <div class="report-card-body">
-      <div class="report-card-summary">Full product portfolio sweep across 6 products. 20+ decks reviewed. 5 live sessions shadowed. Term Depository created. AI-augmented onboarding workflow established.</div>
+      <div class="report-card-summary" data-en="Full product portfolio sweep across 6 products. 20+ decks reviewed. 5 live sessions shadowed. Term Depository created. AI-augmented onboarding workflow established." data-zh="全产品线梳理（6个产品）。阅读20+份文档。参与5场项目会议。创建术语库。建立AI辅助入职工作流。">Full product portfolio sweep across 6 products. 20+ decks reviewed. 5 live sessions shadowed. Term Depository created. AI-augmented onboarding workflow established.</div>
       <div class="report-card-links">
-        <a href="reports/week1/en.html" class="report-link">EN &#x2192;</a>
-        <a href="reports/week1/zh.html" class="report-link">&#x4E2D;&#x6587; &#x2192;</a>
+        <a href="reports/week1/en.html" class="report-link">EN →</a>
+        <a href="reports/week1/zh.html" class="report-link">中文 →</a>
       </div>
     </div>
   </div>
 </div>
-<div class="site-footer">Whale &middot; Weimin JI &middot; SA / Presales Workspace &middot; Powered by Alivia</div>
+<div class="site-footer">Whale · Weimin JI · SA / Presales Workspace · Powered by Alivia</div>
 <script src="assets/app.js"></script>
 <script>WhaleAuth.guard();</script>
 </body>
